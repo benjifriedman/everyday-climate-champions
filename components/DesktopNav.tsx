@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { NAV_LINKS } from '@/lib/constants';
 
+const DESKTOP_HIDDEN = new Set(['/categories', '/team']);
+
 function isActive(href: string, pathname: string): boolean {
   if (href === '/') {
     return pathname === '/';
@@ -17,7 +19,7 @@ export default function DesktopNav() {
   return (
     <nav aria-label="Primary navigation" className="hidden nav:block">
       <ul className="flex items-center gap-1">
-        {NAV_LINKS.map((link) => {
+        {NAV_LINKS.filter((link) => !DESKTOP_HIDDEN.has(link.href)).map((link) => {
           const active = isActive(link.href, pathname);
           return (
             <li key={link.href}>
