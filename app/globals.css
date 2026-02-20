@@ -1,26 +1,49 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: #faf9f6;
+  --color-foreground: #1a1a1a;
+
+  /* ECC Brand Colors - Earthy greens and warm neutrals */
+  --color-ecc-green-50: #f0f7f0;
+  --color-ecc-green-100: #d4ecd4;
+  --color-ecc-green-200: #a8d9a8;
+  --color-ecc-green-300: #6fbf6f;
+  --color-ecc-green-400: #4a9e4a;
+  --color-ecc-green-500: #2d7a2d;
+  --color-ecc-green-600: #236023;
+  --color-ecc-green-700: #1a481a;
+  --color-ecc-green-800: #123012;
+  --color-ecc-green-900: #0a1a0a;
+
+  --color-ecc-warm-50: #fdfcfa;
+  --color-ecc-warm-100: #f5f0e8;
+  --color-ecc-warm-200: #e8dcc8;
+  --color-ecc-warm-300: #d4c4a0;
+  --color-ecc-warm-400: #bfa878;
+  --color-ecc-warm-500: #a68c55;
+  --color-ecc-warm-600: #8a7344;
+  --color-ecc-warm-700: #6e5a35;
+  --color-ecc-warm-800: #524226;
+  --color-ecc-warm-900: #362b18;
+
+  --color-ecc-earth-50: #faf6f1;
+  --color-ecc-earth-100: #f0e6d6;
+  --color-ecc-earth-200: #dfc9a8;
+  --color-ecc-earth-300: #c9a874;
+  --color-ecc-earth-400: #b38a4a;
+  --color-ecc-earth-500: #8f6e3a;
+  --color-ecc-earth-600: #6e552d;
+  --color-ecc-earth-700: #503e21;
+  --color-ecc-earth-800: #352916;
+  --color-ecc-earth-900: #1c160b;
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--color-background);
+  color: var(--color-foreground);
   font-family: Arial, Helvetica, sans-serif;
 }

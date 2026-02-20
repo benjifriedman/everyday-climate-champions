@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Everyday Climate Champions
+
+The public frontend for the [Everyday Climate Champions](https://www.everydayclimatechampions.org/) podcast — a show about everyday Bay Area people helping with climate change.
+
+Built with [Next.js](https://nextjs.org/) (App Router), using the existing WordPress site as a headless CMS via [WPGraphQL](https://www.wpgraphql.com/).
+
+## Tech Stack
+
+- **Next.js 15** with App Router and TypeScript
+- **Tailwind CSS** for styling
+- **WordPress + WPGraphQL** as the headless CMS
+- **graphql-request** for data fetching
+- **ISR** (Incremental Static Regeneration) + on-demand revalidation via webhook
 
 ## Getting Started
 
-First, run the development server:
+1. Copy the example env file and fill in the values:
+   ```bash
+   cp .env.local.example .env.local
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+4. Open [http://localhost:3000](http://localhost:3000)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Environment Variables
 
-## Learn More
+| Variable | Description |
+|---|---|
+| `NEXT_PUBLIC_WORDPRESS_GRAPHQL_URL` | WordPress GraphQL endpoint |
+| `REVALIDATION_SECRET` | Secret token for the on-demand revalidation webhook |
 
-To learn more about Next.js, take a look at the following resources:
+## Pages
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Home** — Latest episode with Spotify embed + recent episodes grid
+- **All Episodes** — Paginated episode listing
+- **Episode Detail** — Full episode content, per-episode Spotify player, resource links (recap, transcript, action steps)
+- **Category Archive** — Episodes filtered by podcast category
+- **About Us, Our Team, Partners & Sponsors, Take Action, Contact Us** — WordPress pages
+- **Catch-all** — Any other WordPress page (recaps, transcripts, etc.)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment
 
-## Deploy on Vercel
+### 1. Deploy to Vercel
+- Import this repo in [Vercel](https://vercel.com/new)
+- Set environment variables in project settings:
+  - `NEXT_PUBLIC_WORDPRESS_GRAPHQL_URL` — your WordPress GraphQL endpoint
+  - `REVALIDATION_SECRET` — generate with `openssl rand -hex 32`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 2. Move WordPress to a subdomain
+- Set up WordPress on a subdomain (e.g. `cms.everydayclimatechampions.org`)
+- Point `everydayclimatechampions.org` DNS to Vercel
+- Update `NEXT_PUBLIC_WORDPRESS_GRAPHQL_URL` in Vercel
+- Update `next.config.ts` image `remotePatterns` hostname if needed
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 3. Configure WP Webhooks for instant content updates
+In WordPress admin → WP Webhooks, create webhooks with:
+- **Trigger**: Post published / updated, Page published / updated
+- **URL**: `https://everydayclimatechampions.org/api/revalidate`
+- **Method**: POST
+- **Body** (JSON):
+  ```json
+  {
+    "secret": "<your REVALIDATION_SECRET>",
+    "type": "post",
+    "slug": "{post_name}"
+  }
+  ```
+  Use `"type": "page"` for page triggers. Omit path/type/slug to revalidate the whole site.
+
+## License
+
+This project is open source.
