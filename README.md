@@ -46,6 +46,7 @@ Built with [Next.js](https://nextjs.org/) (App Router), using the existing WordP
 | `/all-episodes` | Paginated episode listing |
 | `/episodes/[slug]` | Episode detail — content, per-episode Spotify player, resource links |
 | `/podcast-category/[slug]` | Episodes filtered by podcast category |
+| `/categories` | Browse all podcast categories with episode counts |
 | `/about-us` | About Us (WordPress page) |
 | `/team` | Our Team (WordPress page) |
 | `/our-partners-and-sponsors` | Partners & Sponsors (WordPress page) |
@@ -90,7 +91,6 @@ Required WordPress plugins:
 
 - Move WordPress to a subdomain (e.g. `cms.everydayclimatechampions.org`) and point the main domain DNS to Vercel
 - Re-create Elementor-based pages (About Us, Take Action, etc.) in the WordPress block editor for cleaner rendering
-- Register `podcast_category` and `podcast_tag` taxonomies with WPGraphQL for category/tag filtering
 - Configure WP Mail SMTP or similar plugin if email delivery from WordPress is needed
 
 ## License
