@@ -74,6 +74,14 @@ body {
   font-weight: 700;
 }
 
+.prose h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  color: var(--color-foreground);
+}
+
 .prose h2 {
   font-size: 1.5rem;
   font-weight: 700;
@@ -96,6 +104,24 @@ body {
   margin-top: 1em;
   margin-bottom: 0.5em;
   color: var(--color-foreground);
+}
+
+.prose h5 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  color: var(--color-foreground);
+}
+
+.prose h6 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  color: var(--color-foreground);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .prose ul {
@@ -133,4 +159,61 @@ body {
   margin-bottom: 1em;
   font-style: italic;
   color: var(--color-ecc-warm-700);
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.prose th,
+.prose td {
+  border: 1px solid var(--color-ecc-warm-200);
+  padding: 0.5em 0.75em;
+  text-align: left;
+}
+
+.prose th {
+  font-weight: 600;
+  background-color: var(--color-ecc-warm-50);
+}
+
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--color-ecc-warm-200);
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.prose pre {
+  background-color: var(--color-ecc-warm-50);
+  padding: 1em;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.prose code {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.875em;
+}
+
+.prose em,
+.prose i {
+  font-style: italic;
+}
+
+.prose figure {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.prose figcaption {
+  font-size: 0.875rem;
+  color: var(--color-ecc-warm-600);
+  margin-top: 0.5em;
+  text-align: center;
 }
