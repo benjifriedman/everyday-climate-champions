@@ -1,7 +1,14 @@
 'use client';
 
 import { useState } from 'react';
-import type { NewsletterFormData, NewsletterFormErrors } from '@/types/forms';
+
+interface NewsletterFormData {
+  email: string;
+}
+
+interface NewsletterFormErrors {
+  email?: string;
+}
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
