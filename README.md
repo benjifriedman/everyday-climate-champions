@@ -1,6 +1,6 @@
 # Everyday Climate Champions
 
-The public frontend for the [Everyday Climate Champions](https://www.everydayclimatechampions.org/) podcast — a show about everyday Bay Area people helping with climate change.
+The public frontend for the [Everyday Climate Champions](https://everyday-climate-champions.vercel.app/) podcast — a show about everyday Bay Area people helping with climate change.
 
 Built with [Next.js](https://nextjs.org/) (App Router), using the existing WordPress site as a headless CMS via [WPGraphQL](https://www.wpgraphql.com/).
 
@@ -35,46 +35,63 @@ Built with [Next.js](https://nextjs.org/) (App Router), using the existing WordP
 
 | Variable | Description |
 |---|---|
-| `NEXT_PUBLIC_WORDPRESS_GRAPHQL_URL` | WordPress GraphQL endpoint |
+| `NEXT_PUBLIC_WORDPRESS_GRAPHQL_URL` | WordPress GraphQL endpoint (e.g. `https://www.everydayclimatechampions.org/graphql`) |
 | `REVALIDATION_SECRET` | Secret token for the on-demand revalidation webhook |
 
 ## Pages
 
-- **Home** — Latest episode with Spotify embed + recent episodes grid
-- **All Episodes** — Paginated episode listing
-- **Episode Detail** — Full episode content, per-episode Spotify player, resource links (recap, transcript, action steps)
-- **Category Archive** — Episodes filtered by podcast category
-- **About Us, Our Team, Partners & Sponsors, Take Action, Contact Us** — WordPress pages
-- **Catch-all** — Any other WordPress page (recaps, transcripts, etc.)
+| Route | Description |
+|---|---|
+| `/` | Home — latest episode with Spotify embed, recent episodes grid |
+| `/all-episodes` | Paginated episode listing |
+| `/episodes/[slug]` | Episode detail — content, per-episode Spotify player, resource links |
+| `/podcast-category/[slug]` | Episodes filtered by podcast category |
+| `/about-us` | About Us (WordPress page) |
+| `/team` | Our Team (WordPress page) |
+| `/our-partners-and-sponsors` | Partners & Sponsors (WordPress page) |
+| `/take-action` | Take Action (WordPress page) |
+| `/contact-us` | Contact Us — links to feedback survey, guest suggestions, collaboration form, email |
+| `/[...slug]` | Catch-all for any other WordPress page (recaps, transcripts, etc.) |
 
-## Deployment
+## Architecture
 
-### 1. Deploy to Vercel
-- Import this repo in [Vercel](https://vercel.com/new)
-- Set environment variables in project settings:
-  - `NEXT_PUBLIC_WORDPRESS_GRAPHQL_URL` — your WordPress GraphQL endpoint
-  - `REVALIDATION_SECRET` — generate with `openssl rand -hex 32`
+### Data Flow
 
-### 2. Move WordPress to a subdomain
-- Set up WordPress on a subdomain (e.g. `cms.everydayclimatechampions.org`)
-- Point `everydayclimatechampions.org` DNS to Vercel
-- Update `NEXT_PUBLIC_WORDPRESS_GRAPHQL_URL` in Vercel
-- Update `next.config.ts` image `remotePatterns` hostname if needed
+WordPress stores all content (episodes, pages). The Next.js frontend fetches content via WPGraphQL at build/request time using ISR. When content is updated in WordPress, WP Webhooks sends a POST to `/api/revalidate` which purges the ISR cache so changes appear within seconds.
 
-### 3. Configure WP Webhooks for instant content updates
-In WordPress admin → WP Webhooks, create webhooks with:
-- **Trigger**: Post published / updated, Page published / updated
-- **URL**: `https://everydayclimatechampions.org/api/revalidate`
-- **Method**: POST
-- **Body** (JSON):
-  ```json
-  {
-    "secret": "<your REVALIDATION_SECRET>",
-    "type": "post",
-    "slug": "{post_name}"
-  }
-  ```
-  Use `"type": "page"` for page triggers. Omit path/type/slug to revalidate the whole site.
+### WordPress Setup
+
+The WordPress site uses a custom `podcast` post type (registered with WPGraphQL as `episodes`/`episode`). Episode metadata (Spotify URL, episode number, recap/transcript/action steps links) is exposed via custom GraphQL fields added in `functions.php`.
+
+Required WordPress plugins:
+- **WPGraphQL** — exposes content via GraphQL API
+- **WP Webhooks** — triggers on-demand revalidation when content changes
+
+### Key Files
+
+| Path | Purpose |
+|---|---|
+| `lib/queries.ts` | All GraphQL queries |
+| `lib/graphql.ts` | GraphQL client with error handling |
+| `lib/api.ts` | Data fetching functions |
+| `lib/constants.ts` | Nav links, site title, Spotify show ID |
+| `types/wordpress.ts` | TypeScript types for WP data |
+| `app/api/revalidate/route.ts` | On-demand ISR revalidation endpoint |
+| `app/globals.css` | Global styles including WordPress content styling |
+
+## Contributing
+
+1. Fork the repo and create a feature branch
+2. Make sure `npm run build` passes before submitting a PR
+3. WordPress content changes should be made in the WordPress admin, not in code
+4. Episode metadata fields are managed via `functions.php` on the WordPress side
+
+## Remaining To-Do
+
+- Move WordPress to a subdomain (e.g. `cms.everydayclimatechampions.org`) and point the main domain DNS to Vercel
+- Re-create Elementor-based pages (About Us, Take Action, etc.) in the WordPress block editor for cleaner rendering
+- Register `podcast_category` and `podcast_tag` taxonomies with WPGraphQL for category/tag filtering
+- Configure WP Mail SMTP or similar plugin if email delivery from WordPress is needed
 
 ## License
 
