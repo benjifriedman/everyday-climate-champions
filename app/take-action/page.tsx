@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { fetchGraphQL } from '@/lib/graphql';
 import { PAGE_BY_SLUG_QUERY } from '@/lib/queries';
 import type { PageResponse } from '@/types/wordpress';
-import NewsletterSignup from '@/components/NewsletterSignup';
+
 
 export const revalidate = 3600;
 
@@ -71,21 +71,7 @@ export default async function TakeActionPage() {
           dangerouslySetInnerHTML={{ __html: data.page.content }}
         />
 
-        {/* Newsletter Signup */}
-        <section className="mt-12" aria-labelledby="newsletter-heading">
-          <h2
-            id="newsletter-heading"
-            className="text-2xl font-bold text-foreground"
-          >
-            Subscribe to Our Newsletter
-          </h2>
-          <p className="mt-2 text-ecc-warm-600">
-            Stay up to date with the latest episodes and climate action tips.
-          </p>
-          <div className="mt-4 max-w-md">
-            <NewsletterSignup />
-          </div>
-        </section>
+
       </main>
     );
   } catch {
