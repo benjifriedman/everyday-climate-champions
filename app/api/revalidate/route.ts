@@ -21,11 +21,21 @@ import { NextRequest, NextResponse } from 'next/server';
  */
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
+    // Accept secret from query parameter or request body
+    const secret = process.env.REVALIDATION_SECRET;
+    const querySecret = request.nextUrl.searchParams.get('secret');
+
+    let body: Record<string, unknown> = {};
+    try {
+      body = await request.json();
+    } catch {
+      // Body may not be JSON (e.g. WP Webhooks sends its own format)
+    }
+
+    const providedSecret = querySecret || body.secret;
 
     // Validate secret token
-    const secret = process.env.REVALIDATION_SECRET;
-    if (!secret || body.secret !== secret) {
+    if (!secret || providedSecret !== secret) {
       return NextResponse.json({ message: 'Invalid secret' }, { status: 401 });
     }
 

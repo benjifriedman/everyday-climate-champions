@@ -3,7 +3,15 @@ import Image from 'next/image';
 import type { WPEpisode } from '@/types/wordpress';
 
 function stripHtml(html: string): string {
-  return html.replace(/<[^>]*>/g, '').trim();
+  return html
+    .replace(/<[^>]*>/g, '')
+    .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(Number(code)))
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&hellip;/g, '…')
+    .trim();
 }
 
 function formatDate(dateString: string): string {
