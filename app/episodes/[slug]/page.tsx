@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { fetchGraphQL } from '@/lib/graphql';
 import { SINGLE_EPISODE_QUERY } from '@/lib/queries';
+import { cleanWordPressContent } from '@/lib/sanitize';
 import type { SingleEpisodeResponse } from '@/types/wordpress';
 import { SPOTIFY_SHOW_ID } from '@/lib/constants';
 
@@ -145,7 +146,7 @@ export default async function EpisodeDetailPage({ params }: EpisodePageProps) {
 
         <div
           className="prose prose-neutral max-w-none text-ecc-warm-700"
-          dangerouslySetInnerHTML={{ __html: episode.content }}
+          dangerouslySetInnerHTML={{ __html: cleanWordPressContent(episode.content) }}
         />
 
         {/* Spotify Player */}

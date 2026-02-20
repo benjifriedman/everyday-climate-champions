@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { fetchGraphQL } from '@/lib/graphql';
 import { PAGE_BY_SLUG_QUERY } from '@/lib/queries';
+import { cleanWordPressContent } from '@/lib/sanitize';
 import type { PageResponse } from '@/types/wordpress';
 
 export const revalidate = 3600;
@@ -69,7 +70,7 @@ export default async function PartnersAndSponsorsPage() {
         </h1>
         <div
           className="prose prose-neutral mt-8 max-w-none text-ecc-warm-700"
-          dangerouslySetInnerHTML={{ __html: data.page.content }}
+          dangerouslySetInnerHTML={{ __html: cleanWordPressContent(data.page.content) }}
         />
       </main>
     );

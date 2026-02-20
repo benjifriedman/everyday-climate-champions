@@ -41,7 +41,7 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-  --breakpoint-nav: 1130px;
+  --breakpoint-nav: 1230px;
 }
 
 body {
@@ -66,8 +66,16 @@ body {
 }
 
 .prose p {
-  margin-top: 1em;
-  margin-bottom: 1em;
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+}
+
+.prose p:empty,
+.prose p:has(> br:only-child) {
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  font-size: 0;
 }
 
 .prose b,
@@ -87,7 +95,7 @@ body {
 .prose h2 {
   font-size: 1.5rem;
   font-weight: 700;
-  margin-top: 1.5em;
+  margin-top: 1.25em;
   margin-bottom: 0.5em;
   color: var(--color-foreground);
 }
@@ -218,4 +226,38 @@ body {
   color: var(--color-ecc-warm-600);
   margin-top: 0.5em;
   text-align: center;
+}
+
+/* WordPress alignment classes */
+.prose .alignright {
+  float: right;
+  margin-left: 1.5em;
+  margin-bottom: 1em;
+  margin-top: 0.25em;
+  max-width: 40%;
+}
+
+.prose .alignleft {
+  float: left;
+  margin-right: 1.5em;
+  margin-bottom: 1em;
+  margin-top: 0.25em;
+  max-width: 40%;
+}
+
+.prose .aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 640px) {
+  .prose .alignright,
+  .prose .alignleft {
+    float: none;
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
 }
