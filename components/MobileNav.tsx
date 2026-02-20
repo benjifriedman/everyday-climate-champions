@@ -82,7 +82,7 @@ export default function MobileNav() {
   }, [pathname]);
 
   return (
-    <div className="md:hidden">
+    <div className="nav:hidden">
       <button
         ref={buttonRef}
         type="button"

@@ -15,7 +15,7 @@ export default function DesktopNav() {
   const pathname = usePathname();
 
   return (
-    <nav aria-label="Primary navigation" className="hidden md:block">
+    <nav aria-label="Primary navigation" className="hidden nav:block">
       <ul className="flex items-center gap-1">
         {NAV_LINKS.map((link) => {
           const active = isActive(link.href, pathname);
