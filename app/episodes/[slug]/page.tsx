@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
+import Link from 'next/link';
 import { fetchGraphQL } from '@/lib/graphql';
 import { SINGLE_EPISODE_QUERY } from '@/lib/queries';
 import type { SingleEpisodeResponse } from '@/types/wordpress';
@@ -102,12 +103,31 @@ export default async function EpisodeDetailPage({ params }: EpisodePageProps) {
     <main className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
       <article>
         <header className="mb-8">
+          <Link
+            href="/all-episodes"
+            className="mb-3 inline-flex items-center gap-1 text-sm text-ecc-green-700 hover:text-ecc-green-800"
+          >
+            ← All Episodes
+          </Link>
           <h1 className="text-3xl font-bold text-foreground sm:text-4xl">
             {episode.title}
           </h1>
           <time dateTime={episode.date} className="mt-2 block text-sm text-ecc-warm-600">
             {formatDate(episode.date)}
           </time>
+          {episode.podcastCategories && episode.podcastCategories.nodes.length > 0 && (
+            <div className="mt-3 flex flex-wrap gap-2">
+              {episode.podcastCategories.nodes.map((cat) => (
+                <Link
+                  key={cat.slug}
+                  href={`/podcast-category/${cat.slug}`}
+                  className="rounded-full bg-ecc-green-50 px-3 py-1 text-xs font-medium text-ecc-green-700 transition-colors hover:bg-ecc-green-100"
+                >
+                  {cat.name}
+                </Link>
+              ))}
+            </div>
+          )}
         </header>
 
         {episode.featuredImage && (

@@ -6,6 +6,7 @@ export interface NavLink {
 export const NAV_LINKS: NavLink[] = [
   { label: 'Home', href: '/' },
   { label: 'All Episodes', href: '/all-episodes' },
+  { label: 'Categories', href: '/categories' },
   { label: 'About Us', href: '/about-us' },
   { label: 'Our Team', href: '/team' },
   { label: 'Partners & Sponsors', href: '/our-partners-and-sponsors' },

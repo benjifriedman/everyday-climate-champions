@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { fetchGraphQL } from '@/lib/graphql';
 import { CATEGORY_ARCHIVE_QUERY } from '@/lib/queries';
@@ -24,12 +25,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       after: null,
     });
 
-    if (!data.category) {
+    if (!data.podcastCategory) {
       return { title: 'Category Not Found | Everyday Climate Champions' };
     }
 
-    const title = `${data.category.name} | Everyday Climate Champions`;
-    const description = `Browse episodes in the ${data.category.name} category of the Everyday Climate Champions podcast.`;
+    const title = `${data.podcastCategory.name} | Everyday Climate Champions`;
+    const description = `Browse episodes in the ${data.podcastCategory.name} category of the Everyday Climate Champions podcast.`;
 
     return {
       title,
@@ -52,11 +53,11 @@ export default async function CategoryArchivePage({ params }: PageProps) {
       after: null,
     });
 
-    if (!data.category) {
+    if (!data.podcastCategory) {
       notFound();
     }
 
-    const { name, episodes: episodesData } = data.category;
+    const { name, episodes: episodesData } = data.podcastCategory;
     const episodes = episodesData.nodes;
     const hasNextPage = episodesData.pageInfo.hasNextPage;
     const totalPages = hasNextPage ? 2 : 1;
@@ -74,6 +75,12 @@ export default async function CategoryArchivePage({ params }: PageProps) {
 
     return (
       <main className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
+        <Link
+          href="/categories"
+          className="mb-3 inline-flex items-center gap-1 text-sm text-ecc-green-700 hover:text-ecc-green-800"
+        >
+          ← All Categories
+        </Link>
         <h1 className="text-3xl font-bold text-foreground sm:text-4xl">{name}</h1>
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {episodes.map((episode) => (

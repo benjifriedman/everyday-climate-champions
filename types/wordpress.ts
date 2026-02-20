@@ -17,13 +17,12 @@ export interface WPFeaturedImage {
 export interface WPCategory {
   name: string;
   slug: string;
-  uri: string;
+  count?: number;
 }
 
 export interface WPTag {
   name: string;
   slug: string;
-  uri: string;
 }
 
 export interface WPEpisode {
@@ -39,6 +38,9 @@ export interface WPEpisode {
   };
   tags?: {
     nodes: WPTag[];
+  };
+  podcastCategories?: {
+    nodes: WPCategory[];
   };
   spotifyUrl?: string | null;
   episodeNumber?: string | null;
@@ -88,11 +90,17 @@ export interface SingleEpisodeResponse {
 }
 
 export interface CategoryResponse {
-  category: WPCategory & {
+  podcastCategory: WPCategory & {
     episodes: {
       nodes: WPEpisode[];
       pageInfo: WPPageInfo;
     };
+  };
+}
+
+export interface AllCategoriesResponse {
+  podcastCategories: {
+    nodes: WPCategory[];
   };
 }
 

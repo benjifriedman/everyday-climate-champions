@@ -25,6 +25,12 @@ export const LATEST_EPISODE_QUERY = gql`
         recapUrl
         transcriptUrl
         actionStepsUrl
+        podcastCategories {
+          nodes {
+            name
+            slug
+          }
+        }
       }
     }
   }
@@ -51,6 +57,12 @@ export const EPISODE_LIST_QUERY = gql`
               width
               height
             }
+          }
+        }
+        podcastCategories {
+          nodes {
+            name
+            slug
           }
         }
       }
@@ -86,16 +98,22 @@ export const SINGLE_EPISODE_QUERY = gql`
       recapUrl
       transcriptUrl
       actionStepsUrl
+      podcastCategories {
+        nodes {
+          name
+          slug
+        }
+      }
     }
   }
 `;
 
 export const CATEGORY_ARCHIVE_QUERY = gql`
   query CategoryArchive($slug: ID!, $first: Int!, $after: String) {
-    category(id: $slug, idType: SLUG) {
+    podcastCategory(id: $slug, idType: SLUG) {
       name
       slug
-      episodes(first: $first, after: $after) {
+      episodes(first: $first, after: $after, where: { orderby: { field: DATE, order: DESC } }) {
         nodes {
           id
           title
@@ -138,6 +156,18 @@ export const PAGE_BY_SLUG_QUERY = gql`
             height
           }
         }
+      }
+    }
+  }
+`;
+
+export const ALL_CATEGORIES_QUERY = gql`
+  query AllCategories {
+    podcastCategories(first: 100) {
+      nodes {
+        name
+        slug
+        count
       }
     }
   }
