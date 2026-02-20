@@ -179,10 +179,7 @@ export default async function EpisodeDetailPage({ params }: EpisodePageProps) {
           </div>
         )}
 
-        {/* Episode Number */}
-        {episode.episodeNumber && (
-          <p className="mt-4 text-sm text-ecc-warm-500">{episode.episodeNumber}</p>
-        )}
+
       </article>
     </main>
   );
