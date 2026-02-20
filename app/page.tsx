@@ -165,7 +165,7 @@ export default async function HomePage() {
                 href={toLocalPath(latestEpisode.recapUrl)}
                 className="inline-flex items-center gap-1.5 rounded-lg border border-ecc-green-700 px-4 py-2 text-sm font-medium text-ecc-green-700 transition-colors hover:bg-ecc-green-50"
               >
-                📝 Recap
+                Recap
               </a>
             )}
             {latestEpisode.transcriptUrl && (
@@ -173,7 +173,7 @@ export default async function HomePage() {
                 href={toLocalPath(latestEpisode.transcriptUrl)}
                 className="inline-flex items-center gap-1.5 rounded-lg border border-ecc-green-700 px-4 py-2 text-sm font-medium text-ecc-green-700 transition-colors hover:bg-ecc-green-50"
               >
-                📄 Transcript
+                Transcript
               </a>
             )}
             {latestEpisode.actionStepsUrl && (
@@ -181,7 +181,7 @@ export default async function HomePage() {
                 href={toLocalPath(latestEpisode.actionStepsUrl)}
                 className="inline-flex items-center gap-1.5 rounded-lg border border-ecc-green-700 px-4 py-2 text-sm font-medium text-ecc-green-700 transition-colors hover:bg-ecc-green-50"
               >
-                🌱 Take Action
+                Take Action
               </a>
             )}
           </div>

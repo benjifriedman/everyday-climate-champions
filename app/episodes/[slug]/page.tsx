@@ -156,7 +156,7 @@ export default async function EpisodeDetailPage({ params }: EpisodePageProps) {
                   href={toLocalPath(episode.recapUrl)}
                   className="inline-flex items-center gap-2 rounded-lg bg-ecc-green-700 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-ecc-green-800"
                 >
-                  📝 Recap
+                  Recap
                 </a>
               )}
               {episode.transcriptUrl && (
@@ -164,7 +164,7 @@ export default async function EpisodeDetailPage({ params }: EpisodePageProps) {
                   href={toLocalPath(episode.transcriptUrl)}
                   className="inline-flex items-center gap-2 rounded-lg bg-ecc-green-700 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-ecc-green-800"
                 >
-                  📄 Transcript
+                  Transcript
                 </a>
               )}
               {episode.actionStepsUrl && (
@@ -172,7 +172,7 @@ export default async function EpisodeDetailPage({ params }: EpisodePageProps) {
                   href={toLocalPath(episode.actionStepsUrl)}
                   className="inline-flex items-center gap-2 rounded-lg bg-ecc-green-700 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-ecc-green-800"
                 >
-                  🌱 Take Action
+                  Take Action
                 </a>
               )}
             </div>
