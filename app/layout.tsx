@@ -4,6 +4,7 @@ import './globals.css';
 import { AudioPlayerProvider } from '@/components/AudioPlayerProvider';
 import PageShell from '@/components/PageShell';
 import PersistentAudioPlayer from '@/components/PersistentAudioPlayer';
+import { Analytics } from '@vercel/analytics/next';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -32,6 +33,7 @@ export default function RootLayout({
           <PageShell>{children}</PageShell>
           <PersistentAudioPlayer />
         </AudioPlayerProvider>
+        <Analytics />
       </body>
     </html>
   );
