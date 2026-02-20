@@ -42,20 +42,22 @@ export async function POST(request: NextRequest) {
     const revalidatedPaths: string[] = [];
 
     // Option 1: Explicit path(s) provided
-    if (body.path) {
+    if (typeof body.path === 'string') {
       revalidatePath(body.path);
       revalidatedPaths.push(body.path);
     }
 
-    if (body.paths && Array.isArray(body.paths)) {
+    if (Array.isArray(body.paths)) {
       for (const p of body.paths) {
-        revalidatePath(p);
-        revalidatedPaths.push(p);
+        if (typeof p === 'string') {
+          revalidatePath(p);
+          revalidatedPaths.push(p);
+        }
       }
     }
 
     // Option 2: Type + slug provided — build the path automatically
-    if (body.type && body.slug) {
+    if (typeof body.type === 'string' && typeof body.slug === 'string') {
       if (body.type === 'post') {
         // Revalidate the episode detail page, home, and all-episodes list
         const paths = [`/episodes/${body.slug}`, '/', '/all-episodes'];
