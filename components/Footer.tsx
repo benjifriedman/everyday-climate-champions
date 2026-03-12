@@ -7,11 +7,26 @@ export default function Footer() {
   return (
     <footer className="border-t border-ecc-warm-200 bg-ecc-warm-50">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          {/* Mission */}
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-wider text-foreground">
+              Our Mission
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-foreground">
+              Our mission is to shine a light on what&apos;s working locally, grounded in our
+              community residents&apos; cultures and contexts. We feature our neighbors &ndash;
+              children, adults, and seniors &ndash; and prioritize those who often go unheard
+              in climate conversations. You can count on us to do extensive background research
+              and cite our sources. And we deliver it all in bite-sized episodes (about 15
+              minutes each) that you can listen to on the go!
+            </p>
+          </div>
+
           {/* Brand & Social */}
           <div>
-            <p className="text-lg font-semibold text-foreground">{SITE_TITLE}</p>
-            <p className="mt-2 text-sm text-foreground/70">
+            <p className="text-sm font-semibold uppercase tracking-wider text-foreground">{SITE_TITLE}</p>
+            <p className="mt-2 text-sm text-foreground">
               Everyday Bay Area people helping with climate change.
             </p>
             <div className="mt-4 flex gap-4">
@@ -51,7 +66,7 @@ export default function Footer() {
             </div>
             {/* Podcast Platforms */}
             <div className="mt-4">
-              <p className="text-xs font-semibold uppercase tracking-wider text-foreground/50">
+              <p className="text-xs font-semibold uppercase tracking-wider text-foreground">
                 Listen On
               </p>
               <div className="mt-2 flex gap-4">
@@ -105,7 +120,7 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wider text-foreground/60">
+            <p className="text-sm font-semibold uppercase tracking-wider text-foreground">
               Navigation
             </p>
             <nav aria-label="Footer navigation" className="mt-3">
@@ -114,7 +129,7 @@ export default function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-foreground/70 transition-colors hover:text-ecc-green-700"
+                      className="text-sm text-foreground transition-colors hover:text-ecc-green-700"
                     >
                       {link.label}
                     </Link>
@@ -126,10 +141,10 @@ export default function Footer() {
 
           {/* Land Acknowledgment */}
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wider text-foreground/60">
+            <p className="text-sm font-semibold uppercase tracking-wider text-foreground">
               Land Acknowledgment
             </p>
-            <p className="mt-3 text-sm leading-relaxed text-foreground/70">
+            <p className="mt-3 text-sm leading-relaxed text-foreground">
               We acknowledge that we live and work on the unceded ancestral homeland of the
               Ohlone people. We pay our respects to them as the traditional stewards of this
               land and waterways, and honor their legacy and contributions.
