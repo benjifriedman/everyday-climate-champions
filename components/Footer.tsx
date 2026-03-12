@@ -26,7 +26,7 @@ export default function Footer() {
           {/* Brand & Social */}
           <div>
             <p className="text-sm font-semibold uppercase tracking-wider text-foreground">{SITE_TITLE}</p>
-            <p className="mt-2 text-sm text-foreground">
+            <p className="mt-3 text-sm text-foreground">
               Everyday Bay Area people helping with climate change.
             </p>
             <div className="mt-4 flex gap-4">
