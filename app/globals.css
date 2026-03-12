@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #faf9f6;
+  --color-background: #d0edb7;
   --color-foreground: #1a1a1a;
 
   /* ECC Brand Colors - Earthy greens and warm neutrals */
@@ -12,8 +12,8 @@
   --color-ecc-green-400: #4a9e4a;
   --color-ecc-green-500: #2d7a2d;
   --color-ecc-green-600: #236023;
-  --color-ecc-green-700: #1a481a;
-  --color-ecc-green-800: #123012;
+  --color-ecc-green-700: #047c3a;
+  --color-ecc-green-800: #036830;
   --color-ecc-green-900: #0a1a0a;
 
   --color-ecc-warm-50: #fdfcfa;

@@ -103,8 +103,59 @@ export default async function HomePage() {
   }
 
   return (
-    <main className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
-      {/* Hero Section - Latest Episode */}
+    <main>
+      {/* Hero Section */}
+      <section className="relative mx-auto max-w-5xl overflow-hidden rounded-2xl px-4 pt-8 sm:px-6 lg:px-8">
+        <div className="relative overflow-hidden rounded-2xl">
+          <Image
+            src="/san-francisco.jpg"
+            alt="San Francisco Bay Area skyline"
+            width={1920}
+            height={600}
+            className="h-[350px] w-full object-cover sm:h-[400px]"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
+            <p className="max-w-2xl text-lg leading-relaxed text-white sm:text-xl">
+              How are San Francisco Bay Area residents taking climate action?{' '}
+              <em>Everyday Climate Champions</em> are people like YOU, transforming
+              concern into effective climate resilience and restoration.
+            </p>
+            <div className="mt-6 flex flex-wrap justify-center gap-4">
+              <a
+                href="https://open.spotify.com/episode/26uHhvqyv43HIrjy9XPrDn"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block rounded-lg bg-ecc-green-700 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-ecc-green-800"
+              >
+                Trailer: About Everyday Climate Champions
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
+      {/* Take Action Guide */}
+      <section className="mb-10 rounded-xl border border-amber-200 bg-amber-50 p-6 text-center">
+        <h2 className="text-xl font-bold text-foreground sm:text-2xl">
+          New Take Action Guide
+        </h2>
+        <p className="mx-auto mt-2 max-w-xl text-sm text-foreground/70">
+          Hidden Voices of Climate Justice — practical steps you can take to make a difference in your community.
+        </p>
+        <a
+          href="https://www.everydayclimatechampions.org/wp-content/uploads/2025/11/Take-Action-Guide_Hidden-Voices-of-Climate-Justice.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 inline-block rounded-lg bg-ecc-green-700 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-ecc-green-800"
+        >
+          Download the Guide
+        </a>
+      </section>
+
+      {/* Latest Episode */}
       <section aria-labelledby="latest-episode-title">
         <div className="grid gap-8 md:grid-cols-2 md:items-start">
           {latestEpisode.featuredImage && (
@@ -126,7 +177,7 @@ export default async function HomePage() {
             <h1 id="latest-episode-title" className="text-3xl font-bold text-foreground sm:text-4xl">
               {latestEpisode.title}
             </h1>
-            <time dateTime={latestEpisode.date} className="text-sm text-ecc-warm-600">
+            <time dateTime={latestEpisode.date} className="text-sm text-ecc-green-700">
               {formatDate(latestEpisode.date)}
             </time>
             <div
@@ -163,7 +214,7 @@ export default async function HomePage() {
             {latestEpisode.recapUrl && (
               <a
                 href={toLocalPath(latestEpisode.recapUrl)}
-                className="inline-flex items-center gap-1.5 rounded-lg border border-ecc-green-700 px-4 py-2 text-sm font-medium text-ecc-green-700 transition-colors hover:bg-ecc-green-50"
+                className="inline-flex items-center gap-1.5 rounded-lg bg-ecc-green-700 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-ecc-green-800"
               >
                 Recap
               </a>
@@ -171,7 +222,7 @@ export default async function HomePage() {
             {latestEpisode.transcriptUrl && (
               <a
                 href={toLocalPath(latestEpisode.transcriptUrl)}
-                className="inline-flex items-center gap-1.5 rounded-lg border border-ecc-green-700 px-4 py-2 text-sm font-medium text-ecc-green-700 transition-colors hover:bg-ecc-green-50"
+                className="inline-flex items-center gap-1.5 rounded-lg bg-ecc-green-700 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-ecc-green-800"
               >
                 Transcript
               </a>
@@ -179,7 +230,7 @@ export default async function HomePage() {
             {latestEpisode.actionStepsUrl && (
               <a
                 href={toLocalPath(latestEpisode.actionStepsUrl)}
-                className="inline-flex items-center gap-1.5 rounded-lg border border-ecc-green-700 px-4 py-2 text-sm font-medium text-ecc-green-700 transition-colors hover:bg-ecc-green-50"
+                className="inline-flex items-center gap-1.5 rounded-lg bg-ecc-green-700 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-ecc-green-800"
               >
                 Take Action
               </a>
@@ -201,6 +252,7 @@ export default async function HomePage() {
           </div>
         </section>
       )}
+      </div>
     </main>
   );
 }

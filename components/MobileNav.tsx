@@ -156,8 +156,8 @@ export default function MobileNav() {
                         aria-current={active ? 'page' : undefined}
                         className={`block rounded-md px-3 py-3 text-sm font-medium transition-colors ${
                           active
-                            ? 'bg-ecc-green-50 text-ecc-green-700 underline underline-offset-4'
-                            : 'text-foreground/80 hover:bg-ecc-green-50 hover:text-ecc-green-700'
+                            ? 'bg-ecc-green-700 text-white underline underline-offset-4'
+                            : 'text-foreground/80 hover:bg-ecc-green-200 hover:text-ecc-green-700'
                         }`}
                       >
                         {link.label}

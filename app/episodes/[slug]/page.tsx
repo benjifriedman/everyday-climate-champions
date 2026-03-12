@@ -113,7 +113,7 @@ export default async function EpisodeDetailPage({ params }: EpisodePageProps) {
           <h1 className="text-3xl font-bold text-foreground sm:text-4xl">
             {episode.title}
           </h1>
-          <time dateTime={episode.date} className="mt-2 block text-sm text-ecc-warm-600">
+          <time dateTime={episode.date} className="mt-2 block text-sm text-ecc-green-700">
             {formatDate(episode.date)}
           </time>
           {episode.podcastCategories && episode.podcastCategories.nodes.length > 0 && (
