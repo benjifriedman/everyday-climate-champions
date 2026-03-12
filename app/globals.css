@@ -251,6 +251,15 @@ body {
   margin-right: auto;
 }
 
+/* Page title banner */
+.page-title {
+  display: inline-block;
+  background-color: var(--color-ecc-green-700);
+  color: white;
+  padding: 0.25em 0.75em;
+  border-radius: 0.5rem;
+}
+
 @media (max-width: 640px) {
   .prose .alignright,
   .prose .alignleft {

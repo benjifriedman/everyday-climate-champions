@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} font-sans antialiased pb-20`}>
+      <body className={`${geistSans.variable} font-sans antialiased`}>
         <AudioPlayerProvider>
           <PageShell>{children}</PageShell>
           <PersistentAudioPlayer />

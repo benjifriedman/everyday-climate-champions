@@ -6,7 +6,7 @@ import MobileNav from '@/components/MobileNav';
 
 export default function Header() {
   return (
-    <header className="relative border-b border-ecc-warm-200 bg-background">
+    <header className="relative border-b border-ecc-warm-200 bg-ecc-warm-50">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-3">
           <Image

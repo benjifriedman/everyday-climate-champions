@@ -81,7 +81,7 @@ export default async function CategoryArchivePage({ params }: PageProps) {
         >
           ← All Categories
         </Link>
-        <h1 className="text-3xl font-bold text-foreground sm:text-4xl">{name}</h1>
+        <h1 className="page-title text-3xl font-bold sm:text-4xl">{name}</h1>
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {episodes.map((episode) => (
             <EpisodeCard key={episode.id} episode={episode} />
