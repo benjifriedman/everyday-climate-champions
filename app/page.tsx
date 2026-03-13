@@ -105,8 +105,8 @@ export default async function HomePage() {
   return (
     <main>
       {/* Hero Section */}
-      <section className="relative mx-auto max-w-5xl overflow-hidden rounded-2xl px-4 pt-8 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-2xl">
+      <section className="relative lg:mx-auto lg:max-w-5xl lg:px-4 lg:pt-8 xl:px-6">
+        <div className="relative overflow-hidden lg:rounded-2xl">
           <Image
             src="/san-francisco.jpg"
             alt="San Francisco Bay Area skyline"
@@ -117,7 +117,7 @@ export default async function HomePage() {
           />
           <div className="absolute inset-0 bg-black/40" />
           <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
-            <p className="max-w-2xl text-lg leading-relaxed text-white sm:text-xl">
+            <p className="max-w-2xl text-lg leading-relaxed text-white drop-shadow-lg sm:text-xl" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.7)' }}>
               How are San Francisco Bay Area residents taking climate action?{' '}
               <em>Everyday Climate Champions</em> are people like YOU, transforming
               concern into effective climate resilience and restoration.
