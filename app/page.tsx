@@ -142,7 +142,7 @@ export default async function HomePage() {
         <h2 className="text-xl font-bold text-foreground sm:text-2xl">
           New Take Action Guide
         </h2>
-        <p className="mx-auto mt-2 max-w-xl text-sm text-foreground/70">
+        <p className="mx-auto mt-2 text-sm text-foreground">
           Hidden Voices of Climate Justice — practical steps you can take to make a difference in your community.
         </p>
         <a
