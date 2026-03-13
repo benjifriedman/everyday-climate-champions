@@ -22,6 +22,12 @@ export default function Footer() {
               neighbors &ndash; children, adults, and seniors &ndash; and prioritize those
               who often go unheard in climate conversations.
             </p>
+            <p className="mt-2 text-sm leading-relaxed text-foreground">
+              Fiscally sponsored by The Praxis Group (IRS 501c3)
+            </p>
+            <p className="mt-1 text-sm leading-relaxed text-foreground">
+              <a href="https://www.PraxisInAction.org" target="_blank" rel="noopener noreferrer" className="text-ecc-green-700 underline hover:text-ecc-green-800">www.PraxisInAction.org</a> | EIN 94-3169015
+            </p>
           </div>
 
           {/* Brand & Social */}
