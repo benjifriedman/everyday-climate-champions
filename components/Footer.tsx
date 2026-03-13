@@ -14,12 +14,13 @@ export default function Footer() {
               Our Mission
             </p>
             <p className="mt-3 text-sm leading-relaxed text-foreground">
+              Everyday Bay Area people helping with climate change.
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-foreground">
               Our mission is to shine a light on what&apos;s working locally, grounded in our
-              community residents&apos; cultures and contexts. We feature our neighbors &ndash;
-              children, adults, and seniors &ndash; and prioritize those who often go unheard
-              in climate conversations. You can count on us to do extensive background research
-              and cite our sources. And we deliver it all in bite-sized episodes (about 15
-              minutes each) that you can listen to on the go!
+              community residents&apos; cultures and contexts. Our podcasts feature our
+              neighbors &ndash; children, adults, and seniors &ndash; and prioritize those
+              who often go unheard in climate conversations.
             </p>
           </div>
 
