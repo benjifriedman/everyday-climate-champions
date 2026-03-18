@@ -14,7 +14,7 @@ export default function Footer() {
               Our Mission
             </p>
             <p className="mt-3 text-sm leading-relaxed text-foreground">
-              Everyday Bay Area people helping with climate change.
+              Everyday Bay Area residents taking climate action.
             </p>
             <p className="mt-2 text-sm leading-relaxed text-foreground">
               Our mission is to shine a light on what&apos;s working locally, grounded in our
@@ -34,7 +34,7 @@ export default function Footer() {
           <div>
             <p className="text-sm font-semibold uppercase tracking-wider text-foreground">{SITE_TITLE}</p>
             <p className="mt-3 text-sm text-foreground">
-              Everyday Bay Area people helping with climate change.
+              Everyday Bay Area residents taking climate action.
             </p>
             <div className="mt-4 flex gap-4">
               <a
@@ -152,9 +152,7 @@ export default function Footer() {
               Land Acknowledgment
             </p>
             <p className="mt-3 text-sm leading-relaxed text-foreground">
-              We acknowledge that we live and work on the unceded ancestral homeland of the
-              Ohlone people. We pay our respects to them as the traditional stewards of this
-              land and waterways, and honor their legacy and contributions.
+              With respect and gratitude, we acknowledge the Ohlone, Tamien, Miwok, Pomo, Patkin, Yokuts, Wappo, and other Native peoples on whose unceded ancestral lands we work and live. We stand in solidarity with all Indigenous peoples, and their rights to self-determination and justice.
             </p>
           </div>
         </div>
