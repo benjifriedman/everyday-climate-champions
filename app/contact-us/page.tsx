@@ -50,7 +50,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function ContactUsPage() {
   return (
-    <main className="mx-auto max-w-3xl px-4 py-8 sm:px-6 lg:px-8">
+    <main className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
       <h1 className="page-title text-3xl font-bold sm:text-4xl">
         Contact Us
       </h1>
