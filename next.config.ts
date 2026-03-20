@@ -9,6 +9,11 @@ const nextConfig: NextConfig = {
         hostname: "www.everydayclimatechampions.org",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "www.praxisinaction.org",
+        pathname: "/ecc/**",
+      },
     ],
   },
 };
