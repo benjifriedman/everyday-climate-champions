@@ -12,6 +12,14 @@ Built with [Next.js](https://nextjs.org/) (App Router), using the existing WordP
 - **graphql-request** for data fetching
 - **ISR** (Incremental Static Regeneration) + on-demand revalidation via webhook
 
+## Live URLs
+
+| URL | Description |
+|---|---|
+| https://www.everydayclimatechampions.org | Live site (hosted on Vercel) |
+| https://www.praxisinaction.org/ecc/?graphql | WordPress GraphQL endpoint (content source) |
+| https://www.praxisinaction.org/ecc/wp-admin | WordPress admin |
+
 ## Getting Started
 
 1. Copy the example env file and fill in the values:
@@ -35,7 +43,7 @@ Built with [Next.js](https://nextjs.org/) (App Router), using the existing WordP
 
 | Variable | Description |
 |---|---|
-| `NEXT_PUBLIC_WORDPRESS_GRAPHQL_URL` | WordPress GraphQL endpoint (e.g. `https://www.everydayclimatechampions.org/graphql`) |
+| `NEXT_PUBLIC_WORDPRESS_GRAPHQL_URL` | WordPress GraphQL endpoint (e.g. `https://www.praxisinaction.org/ecc/?graphql`) |
 | `REVALIDATION_SECRET` | Secret token for the on-demand revalidation webhook |
 
 ## Pages
@@ -89,7 +97,6 @@ Required WordPress plugins:
 
 ## Remaining To-Do
 
-- Move WordPress to a subdomain (e.g. `cms.everydayclimatechampions.org`) and point the main domain DNS to Vercel
 - Re-create Elementor-based pages (About Us, Take Action, etc.) in the WordPress block editor for cleaner rendering
 - Configure WP Mail SMTP or similar plugin if email delivery from WordPress is needed
 
