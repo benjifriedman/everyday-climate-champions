@@ -122,7 +122,7 @@ export default async function EpisodeDetailPage({ params }: EpisodePageProps) {
                 <Link
                   key={cat.slug}
                   href={`/podcast-category/${cat.slug}`}
-                  className="rounded-full bg-ecc-green-50 px-3 py-1 text-xs font-medium text-ecc-green-700 transition-colors hover:bg-ecc-green-100"
+                  className="rounded-full bg-ecc-green-50 px-3 py-1 text-xs font-medium text-ecc-green-700"
                 >
                   {cat.name}
                 </Link>

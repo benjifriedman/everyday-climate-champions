@@ -67,7 +67,7 @@ export default async function AboutUsPage() {
           {data.page.title}
         </h1>
         <div
-          className="prose prose-neutral mt-8 max-w-none text-ecc-warm-700"
+          className="prose prose-neutral mt-4 max-w-none text-ecc-warm-700"
           dangerouslySetInnerHTML={{ __html: cleanWordPressContent(data.page.content) }}
         />
       </main>
