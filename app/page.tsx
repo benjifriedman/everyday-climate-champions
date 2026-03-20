@@ -146,7 +146,7 @@ export default async function HomePage() {
           Hidden Voices of Climate Justice — practical steps you can take to make a difference in your community.
         </p>
         <a
-          href="https://www.everydayclimatechampions.org/wp-content/uploads/2025/11/Take-Action-Guide_Hidden-Voices-of-Climate-Justice.pdf"
+          href="https://www.praxisinaction.org/ecc/wp-content/uploads/2025/11/Take-Action-Guide_Hidden-Voices-of-Climate-Justice.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="mt-4 inline-block rounded-lg bg-ecc-green-700 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-ecc-green-800"
