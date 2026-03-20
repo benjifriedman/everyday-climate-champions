@@ -87,7 +87,7 @@ body {
 .prose h1 {
   font-size: 2rem;
   font-weight: 700;
-  margin-top: 1.5em;
+  margin-top: 1em;
   margin-bottom: 0.5em;
   color: var(--color-foreground);
 }
@@ -258,6 +258,7 @@ body {
   color: white;
   padding: 0.25em 0.75em;
   border-radius: 0.5rem;
+  margin-bottom: 0.5em;
 }
 
 @media (max-width: 640px) {
