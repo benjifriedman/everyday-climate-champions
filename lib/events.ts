@@ -14,7 +14,9 @@ export interface EventMeta {
   displayDate: string;   // Human-friendly date
   time: string;
   location: string;
-  externalUrl?: string;  // Optional external registration / info link
+  description: string;   // Short blurb shown on the events listing page
+  ticketUrl?: string;    // Optional link to tickets / registration
+  ticketLabel?: string;  // Button text, defaults to "Get Tickets"
 }
 
 export const EVENTS: EventMeta[] = [
@@ -24,7 +26,10 @@ export const EVENTS: EventMeta[] = [
     displayDate: 'Sunday, April 19',
     time: '2:30 PM – 4:30 PM',
     location: '981 Mission St, San Francisco, CA',
-    externalUrl: 'https://luma.com/6xo6v1s5',
+    description:
+      'A makeover-style live show where climate meets improv. Five Earth Archetypes team up to help one San Franciscan tackle a real-life climate question. Think Queer Eye meets our climate reality — with YOU shaping the outcome.',
+    ticketUrl: 'https://luma.com/6xo6v1s5',
+    ticketLabel: 'Get Tickets on Lu.ma',
   },
   {
     slug: 'collaborating-for-climate-justice-b-corps-everyday-climate-champions-and-trellis',
@@ -32,6 +37,10 @@ export const EVENTS: EventMeta[] = [
     displayDate: 'Monday, April 20',
     time: '5:00 PM – 7:30 PM',
     location: 'Trellis Coworking & Events, San Francisco, CA',
+    description:
+      'A lively panel discussion bringing together Bay Area community and business voices at the intersection of climate justice and community resilience. Network, listen, learn, and build relationships with Bay Area B Corps and others committed to climate action.',
+    ticketUrl: 'https://luma.com/f60foer9',
+    ticketLabel: 'Get Tickets on Lu.ma',
   },
   {
     slug: 'climate-education-day-at-the-california-academy-of-sciences',
@@ -39,6 +48,10 @@ export const EVENTS: EventMeta[] = [
     displayDate: 'Saturday, April 25',
     time: '9:30 AM – 4:00 PM',
     location: 'California Academy of Sciences, San Francisco, CA',
-    externalUrl: 'https://sites.google.com/calacademy.org/2026climateeducationday/2026',
+    description:
+      'Bringing together youth, scholars, educators, community organizations, and local government leaders to spotlight the powerful climate education, action, and justice work happening across San Francisco.',
+    ticketUrl:
+      'https://sites.google.com/calacademy.org/2026climateeducationday/2026',
+    ticketLabel: 'See Schedule & Register',
   },
 ];

@@ -31,14 +31,14 @@ export default async function EventsPage() {
     );
 
     return (
-      <main className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
+      <main className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
         <h1 className="page-title text-3xl font-bold sm:text-4xl">Events</h1>
         <p className="mt-2 text-ecc-warm-600">
           Join us at upcoming community events around climate action in the Bay
           Area.
         </p>
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 space-y-6">
           {sortedEvents.map((meta) => {
             const page = pageMap.get(meta.slug);
             if (!page) return null;
