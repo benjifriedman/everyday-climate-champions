@@ -172,3 +172,26 @@ export const ALL_CATEGORIES_QUERY = gql`
     }
   }
 `;
+
+export const PAGES_BY_SLUGS_QUERY = gql`
+  query PagesBySlugs($slugs: [String!]!) {
+    pages(where: { nameIn: $slugs }) {
+      nodes {
+        id
+        title
+        slug
+        content
+        featuredImage {
+          node {
+            sourceUrl
+            altText
+            mediaDetails {
+              width
+              height
+            }
+          }
+        }
+      }
+    }
+  }
+`;

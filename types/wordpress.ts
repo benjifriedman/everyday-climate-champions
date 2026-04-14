@@ -113,3 +113,9 @@ export interface TeamResponse {
     nodes: WPTeamMember[];
   };
 }
+
+export interface PagesBySlugResponse {
+  pages: {
+    nodes: WPPage[];
+  };
+}
