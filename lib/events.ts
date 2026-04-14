@@ -23,7 +23,7 @@ export const EVENTS: EventMeta[] = [
     date: '2025-04-19',
     displayDate: 'Sunday, April 19',
     time: '2:30 PM – 4:30 PM',
-    location: 'San Francisco, CA',
+    location: '981 Mission St, San Francisco, CA',
     externalUrl: 'https://luma.com/6xo6v1s5',
   },
   {

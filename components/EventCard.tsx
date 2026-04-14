@@ -42,10 +42,12 @@ export default function EventCard({ page, meta }: EventCardProps) {
         <h2 className="mt-1 text-lg font-bold leading-snug text-foreground transition-colors group-hover:text-ecc-green-700">
           {page.title}
         </h2>
-        <p className="mt-auto pt-3 text-sm text-ecc-warm-600">
-          <span aria-hidden="true" className="mr-1">📍</span>
-          {meta.location}
-        </p>
+        <div className="mt-auto flex h-[3em] items-start pt-4">
+          <p className="text-sm leading-snug text-ecc-warm-600">
+            <span aria-hidden="true" className="mr-1">📍</span>
+            {meta.location}
+          </p>
+        </div>
       </div>
     </Link>
   );
