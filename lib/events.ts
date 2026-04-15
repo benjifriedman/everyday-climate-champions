@@ -17,6 +17,7 @@ export interface EventMeta {
   description: string;   // Short blurb shown on the events listing page
   ticketUrl?: string;    // Optional link to tickets / registration
   ticketLabel?: string;  // Button text, defaults to "Get Tickets"
+  imageUrl?: string;     // Optional thumbnail image URL
 }
 
 export const EVENTS: EventMeta[] = [
@@ -30,6 +31,8 @@ export const EVENTS: EventMeta[] = [
       'A makeover-style live show where climate meets improv. Five Earth Archetypes team up to help one San Franciscan tackle a real-life climate question. Think Queer Eye meets our climate reality — with YOU shaping the outcome.',
     ticketUrl: 'https://luma.com/6xo6v1s5',
     ticketLabel: 'Get Tickets on Lu.ma',
+    imageUrl:
+      'https://www.praxisinaction.org/ecc/wp-content/uploads/2026/04/42a00e1b-7fe3-4b7b-bad9-77cdb98ae7cf-300x300.avif',
   },
   {
     slug: 'collaborating-for-climate-justice-b-corps-everyday-climate-champions-and-trellis',
@@ -41,6 +44,8 @@ export const EVENTS: EventMeta[] = [
       'A lively panel discussion bringing together Bay Area community and business voices at the intersection of climate justice and community resilience. Network, listen, learn, and build relationships with Bay Area B Corps and others committed to climate action.',
     ticketUrl: 'https://luma.com/f60foer9',
     ticketLabel: 'Get Tickets on Lu.ma',
+    imageUrl:
+      'https://www.praxisinaction.org/ecc/wp-content/uploads/2026/04/2112075d-bafc-41cb-be55-7e40b2b05654-300x300.avif',
   },
   {
     slug: 'climate-education-day-at-the-california-academy-of-sciences',
@@ -53,5 +58,7 @@ export const EVENTS: EventMeta[] = [
     ticketUrl:
       'https://sites.google.com/calacademy.org/2026climateeducationday/2026',
     ticketLabel: 'See Schedule & Register',
+    imageUrl:
+      'https://www.praxisinaction.org/ecc/wp-content/uploads/2026/04/unnamed-300x211.jpg',
   },
 ];

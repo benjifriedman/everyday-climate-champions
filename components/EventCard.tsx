@@ -12,15 +12,15 @@ export default function EventCard({ page, meta }: EventCardProps) {
   return (
     <article className="overflow-hidden rounded-xl border border-ecc-warm-200 bg-white shadow-sm">
       <div className="flex flex-col sm:flex-row">
-        {/* Image — only shown if the WP page has a featured image */}
-        {page.featuredImage && (
-          <div className="relative aspect-[3/2] w-full shrink-0 overflow-hidden sm:aspect-square sm:w-48 md:w-56">
+        {/* Thumbnail */}
+        {meta.imageUrl && (
+          <div className="relative hidden aspect-square shrink-0 overflow-hidden sm:ml-4 sm:block sm:w-44 md:w-52">
             <Image
-              src={page.featuredImage.node.sourceUrl}
-              alt={page.featuredImage.node.altText || page.title}
-              width={page.featuredImage.node.mediaDetails.width}
-              height={page.featuredImage.node.mediaDetails.height}
-              className="h-full w-full object-cover"
+              src={meta.imageUrl}
+              alt={page.title}
+              width={300}
+              height={300}
+              className="h-full w-full object-contain"
             />
           </div>
         )}
