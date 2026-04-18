@@ -155,6 +155,22 @@ export default async function HomePage() {
         </a>
       </section>
 
+      {/* SF Climate Week Events */}
+      <section className="mb-10 rounded-xl border border-amber-200 bg-amber-50 p-6 text-center">
+        <h2 className="text-xl font-bold text-foreground sm:text-2xl">
+          Upcoming Events During SF Climate Week 2026
+        </h2>
+        <p className="mx-auto mt-2 max-w-lg text-sm text-foreground">
+          Join us for live shows, panels, and community gatherings across San Francisco — April 19–25.
+        </p>
+        <Link
+          href="/events"
+          className="mt-4 inline-block rounded-lg bg-ecc-green-700 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-ecc-green-800"
+        >
+          See All Events
+        </Link>
+      </section>
+
       {/* Latest Episode */}
       <section aria-labelledby="latest-episode-title">
         <div className="grid gap-8 md:grid-cols-2 md:items-start">
