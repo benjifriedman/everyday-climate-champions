@@ -2,9 +2,9 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { NAV_LINKS } from '@/lib/constants';
+import { NAV_LINKS, DONATE_URL } from '@/lib/constants';
 
-const DESKTOP_HIDDEN = new Set(['/categories', '/team']);
+const DESKTOP_HIDDEN = new Set(['/categories', '/team', '/donate']);
 
 function isActive(href: string, pathname: string): boolean {
   if (href === '/') {
@@ -37,6 +37,16 @@ export default function DesktopNav() {
             </li>
           );
         })}
+        <li>
+          <a
+            href={DONATE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-md bg-ecc-green-700 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-ecc-green-800"
+          >
+            Donate
+          </a>
+        </li>
       </ul>
     </nav>
   );

@@ -12,9 +12,13 @@ export const NAV_LINKS: NavLink[] = [
   { label: 'Partners & Sponsors', href: '/our-partners-and-sponsors' },
   { label: 'Events', href: '/events' },
   { label: 'Take Action', href: '/take-action' },
+  { label: 'Donate', href: '/donate' },
   { label: 'Contact Us', href: '/contact-us' },
 ];
 
 export const SITE_TITLE = 'Everyday Climate Champions';
 
 export const SPOTIFY_SHOW_ID = '2vRZ4S9f7mxWKH3IWksX0X';
+
+export const DONATE_URL =
+  'https://secure.givelively.org/donate/the-praxis-group/everyday-climate-champions';
