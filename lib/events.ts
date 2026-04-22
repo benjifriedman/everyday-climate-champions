@@ -56,7 +56,7 @@ export const EVENTS: EventMeta[] = [
     description:
       'Bringing together youth, scholars, educators, community organizations, and local government leaders to spotlight the powerful climate education, action, and justice work happening across San Francisco.',
     ticketUrl:
-      'https://sites.google.com/calacademy.org/2026climateeducationday/2026',
+      'https://luma.com/7jxp5e3t',
     ticketLabel: 'See Schedule & Register',
     imageUrl:
       'https://www.praxisinaction.org/ecc/wp-content/uploads/2026/04/unnamed-300x211.jpg',
