@@ -146,7 +146,7 @@ export default function MobileNav() {
 
             <nav aria-label="Mobile navigation">
               <ul className="flex flex-col px-4 py-2">
-                {NAV_LINKS.map((link) => {
+                {NAV_LINKS.filter((link) => link.href !== '/donate').map((link) => {
                   const active = isActive(link.href, pathname);
                   return (
                     <li key={link.href}>
