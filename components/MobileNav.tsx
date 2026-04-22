@@ -173,7 +173,7 @@ export default function MobileNav() {
                     onClick={close}
                     className="block rounded-md bg-ecc-green-700 px-3 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-ecc-green-800"
                   >
-                    Donate
+                    Donate Now
                   </a>
                 </li>
               </ul>

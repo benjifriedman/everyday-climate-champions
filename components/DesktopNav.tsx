@@ -44,7 +44,7 @@ export default function DesktopNav() {
             rel="noopener noreferrer"
             className="rounded-md bg-ecc-green-700 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-ecc-green-800"
           >
-            Donate
+            Donate Now
           </a>
         </li>
       </ul>
