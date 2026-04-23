@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { NAV_LINKS, DONATE_URL } from '@/lib/constants';
+import { NAV_LINKS } from '@/lib/constants';
 
 function isActive(href: string, pathname: string): boolean {
   if (href === '/') {
@@ -167,9 +167,7 @@ export default function MobileNav() {
                 })}
                 <li>
                   <a
-                    href={DONATE_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="/donate"
                     onClick={close}
                     className="block rounded-md bg-ecc-green-700 px-3 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-ecc-green-800"
                   >
