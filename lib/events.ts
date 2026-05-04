@@ -18,6 +18,7 @@ export interface EventMeta {
   ticketUrl?: string;    // Optional link to tickets / registration
   ticketLabel?: string;  // Button text, defaults to "Get Tickets"
   imageUrl?: string;     // Optional thumbnail image URL
+  past?: boolean;        // Mark as past event
 }
 
 export const EVENTS: EventMeta[] = [
@@ -33,6 +34,7 @@ export const EVENTS: EventMeta[] = [
     ticketLabel: 'Get Tickets on Lu.ma',
     imageUrl:
       'https://www.praxisinaction.org/ecc/wp-content/uploads/2026/04/42a00e1b-7fe3-4b7b-bad9-77cdb98ae7cf-300x300.avif',
+    past: true,
   },
   {
     slug: 'collaborating-for-climate-justice-b-corps-everyday-climate-champions-and-trellis',
@@ -46,6 +48,7 @@ export const EVENTS: EventMeta[] = [
     ticketLabel: 'Get Tickets on Lu.ma',
     imageUrl:
       'https://www.praxisinaction.org/ecc/wp-content/uploads/2026/04/2112075d-bafc-41cb-be55-7e40b2b05654-300x300.avif',
+    past: true,
   },
   {
     slug: 'climate-education-day-at-the-california-academy-of-sciences',
@@ -60,5 +63,6 @@ export const EVENTS: EventMeta[] = [
     ticketLabel: 'See Schedule & Register',
     imageUrl:
       'https://www.praxisinaction.org/ecc/wp-content/uploads/2026/04/unnamed-300x211.jpg',
+    past: true,
   },
 ];

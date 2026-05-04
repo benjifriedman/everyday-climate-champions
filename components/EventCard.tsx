@@ -48,7 +48,7 @@ export default function EventCard({ page, meta }: EventCardProps) {
           </p>
 
           <div className="mt-4 flex flex-wrap items-center gap-3">
-            {meta.ticketUrl && (
+            {meta.ticketUrl && !meta.past && (
               <a
                 href={meta.ticketUrl}
                 target="_blank"

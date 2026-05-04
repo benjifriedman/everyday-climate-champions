@@ -155,7 +155,7 @@ export default async function HomePage() {
         </a>
       </section>
 
-      {/* SF Climate Week Events */}
+      {/* SF Climate Week Events — commented out, uncomment when new events are added
       <section className="mb-10 rounded-xl border border-amber-200 bg-amber-50 p-6 text-center">
         <h2 className="text-xl font-bold text-foreground sm:text-2xl">
           Upcoming Events During SF Climate Week 2026
@@ -170,6 +170,7 @@ export default async function HomePage() {
           See All Events
         </Link>
       </section>
+      */}
 
       {/* Latest Episode */}
       <section aria-labelledby="latest-episode-title">

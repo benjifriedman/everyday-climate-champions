@@ -10,7 +10,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: 'Events | Everyday Climate Champions',
   description:
-    'Upcoming events from Everyday Climate Champions — panels, live shows, and community gatherings around climate action in the Bay Area.',
+    'Events from Everyday Climate Champions — panels, live shows, and community gatherings around climate action in the Bay Area.',
 };
 
 export default async function EventsPage() {
@@ -25,26 +25,52 @@ export default async function EventsPage() {
       pageMap.set(page.slug, page);
     }
 
-    // Sort events by date
-    const sortedEvents = [...EVENTS].sort(
-      (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
-    );
+    const upcoming = [...EVENTS]
+      .filter((e) => !e.past)
+      .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+
+    const past = [...EVENTS]
+      .filter((e) => e.past)
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
     return (
       <main className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
         <h1 className="page-title text-3xl font-bold sm:text-4xl">Events</h1>
-        <p className="mt-2 text-ecc-warm-600">
-          Join us at upcoming community events around climate action in the Bay
-          Area.
-        </p>
 
-        <div className="mt-8 space-y-6">
-          {sortedEvents.map((meta) => {
-            const page = pageMap.get(meta.slug);
-            if (!page) return null;
-            return <EventCard key={meta.slug} page={page} meta={meta} />;
-          })}
-        </div>
+        {upcoming.length > 0 && (
+          <section className="mt-6">
+            <p className="text-ecc-warm-600">
+              Join us at upcoming community events around climate action in the
+              Bay Area.
+            </p>
+            <div className="mt-6 space-y-6">
+              {upcoming.map((meta) => {
+                const page = pageMap.get(meta.slug);
+                if (!page) return null;
+                return <EventCard key={meta.slug} page={page} meta={meta} />;
+              })}
+            </div>
+          </section>
+        )}
+
+        {upcoming.length === 0 && (
+          <p className="mt-4 text-ecc-warm-600">
+            No upcoming events right now — check back soon!
+          </p>
+        )}
+
+        {past.length > 0 && (
+          <section className="mt-12">
+            <h2 className="text-2xl font-bold text-foreground">Past Events</h2>
+            <div className="mt-6 space-y-6">
+              {past.map((meta) => {
+                const page = pageMap.get(meta.slug);
+                if (!page) return null;
+                return <EventCard key={meta.slug} page={page} meta={meta} />;
+              })}
+            </div>
+          </section>
+        )}
       </main>
     );
   } catch {
