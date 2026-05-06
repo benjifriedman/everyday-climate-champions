@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { getEpisodesPage } from '@/lib/api';
 import EpisodeListPage from '@/components/EpisodeListPage';
 
-export const revalidate = 60;
+export const revalidate = 3600;
 
 interface PageProps {
   params: Promise<{ page: string }>;

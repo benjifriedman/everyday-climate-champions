@@ -7,7 +7,7 @@ import type { CategoryResponse } from '@/types/wordpress';
 import EpisodeCard from '@/components/EpisodeCard';
 import Pagination from '@/components/Pagination';
 
-export const revalidate = 60;
+export const revalidate = 3600;
 
 const EPISODES_PER_PAGE = 12;
 

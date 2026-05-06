@@ -5,7 +5,7 @@ import { PAGE_BY_SLUG_QUERY } from '@/lib/queries';
 import { cleanWordPressContent } from '@/lib/sanitize';
 import type { PageResponse } from '@/types/wordpress';
 
-export const revalidate = 60;
+export const revalidate = 3600;
 
 interface CatchAllPageProps {
   params: Promise<{ slug: string[] }>;

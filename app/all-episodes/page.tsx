@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { getEpisodesPage } from '@/lib/api';
 import EpisodeListPage from '@/components/EpisodeListPage';
 
-export const revalidate = 60;
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: 'All Episodes | Everyday Climate Champions',
