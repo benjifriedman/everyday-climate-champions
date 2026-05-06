@@ -27,7 +27,7 @@ function toLocalPath(url: string): string {
   }
 }
 
-export const revalidate = 60;
+export const revalidate = 3600;
 
 export async function generateMetadata(): Promise<Metadata> {
   try {
