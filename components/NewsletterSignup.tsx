@@ -29,7 +29,7 @@ export default function NewsletterSignup() {
   const [errors, setErrors] = useState<NewsletterFormErrors>({});
   const [submitted, setSubmitted] = useState(false);
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+  function updateEmail(e: React.ChangeEvent<HTMLInputElement>) {
     setFormData({ email: e.target.value });
     if (errors.email) {
       setErrors({});
@@ -74,7 +74,7 @@ export default function NewsletterSignup() {
             type="email"
             placeholder="Enter your email"
             value={formData.email}
-            onChange={handleChange}
+            onChange={updateEmail}
             aria-invalid={!!errors.email}
             aria-describedby={errors.email ? 'newsletter-email-error' : undefined}
             className="w-full rounded-md border border-ecc-warm-200 px-3 py-2 text-sm text-foreground placeholder:text-foreground/50 focus:border-ecc-green-500 focus:outline-none focus:ring-1 focus:ring-ecc-green-500"

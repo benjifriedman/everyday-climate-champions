@@ -1,4 +1,4 @@
-export interface NavLink {
+interface NavLink {
   label: string;
   href: string;
 }
@@ -19,6 +19,3 @@ export const NAV_LINKS: NavLink[] = [
 export const SITE_TITLE = 'Everyday Climate Champions';
 
 export const SPOTIFY_SHOW_ID = '2vRZ4S9f7mxWKH3IWksX0X';
-
-export const DONATE_URL =
-  'https://secure.givelively.org/donate/the-praxis-group/everyday-climate-champions';

@@ -5,7 +5,7 @@ import type { PagesBySlugResponse, WPPage } from '@/types/wordpress';
 import { EVENTS } from '@/lib/events';
 import EventCard from '@/components/EventCard';
 
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 export const metadata: Metadata = {
   title: 'Events | Everyday Climate Champions',
@@ -35,7 +35,7 @@ export default async function EventsPage() {
 
     return (
       <main className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
-        <h1 className="page-title text-3xl font-bold sm:text-4xl">Events</h1>
+        <h1 className="page-title text-3xl font-semibold sm:text-4xl">Events</h1>
 
         {upcoming.length > 0 && (
           <section className="mt-6">
@@ -55,13 +55,13 @@ export default async function EventsPage() {
 
         {upcoming.length === 0 && (
           <p className="mt-4 text-ecc-warm-600">
-            No upcoming events right now — check back soon!
+            No upcoming events right now; check back soon!
           </p>
         )}
 
         {past.length > 0 && (
           <section className="mt-12">
-            <h2 className="text-2xl font-bold text-foreground">Past Events</h2>
+            <h2 className="text-2xl font-semibold text-foreground">Past Events</h2>
             <div className="mt-6 space-y-6">
               {past.map((meta) => {
                 const page = pageMap.get(meta.slug);
@@ -76,7 +76,7 @@ export default async function EventsPage() {
   } catch {
     return (
       <main className="mx-auto max-w-4xl px-4 py-16 text-center">
-        <h1 className="text-2xl font-bold text-foreground">
+        <h1 className="text-2xl font-semibold text-foreground">
           Content Temporarily Unavailable
         </h1>
         <p className="mt-4 text-ecc-warm-600">

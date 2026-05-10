@@ -28,7 +28,7 @@ function toLocalPath(url: string): string {
   }
 }
 
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 interface EpisodePageProps {
   params: Promise<{ slug: string }>;
@@ -86,7 +86,7 @@ export default async function EpisodeDetailPage({ params }: EpisodePageProps) {
   } catch {
     return (
       <main className="mx-auto max-w-4xl px-4 py-16 text-center">
-        <h1 className="text-2xl font-bold text-foreground">
+        <h1 className="text-2xl font-semibold text-foreground">
           Content Temporarily Unavailable
         </h1>
         <p className="mt-4 text-ecc-warm-600">
@@ -110,7 +110,7 @@ export default async function EpisodeDetailPage({ params }: EpisodePageProps) {
           >
             ← All Episodes
           </Link>
-          <h1 className="text-3xl font-bold text-foreground sm:text-4xl">
+          <h1 className="text-3xl font-semibold text-foreground sm:text-4xl">
             {episode.title}
           </h1>
           <time dateTime={episode.date} className="mt-2 block text-sm text-ecc-green-700">

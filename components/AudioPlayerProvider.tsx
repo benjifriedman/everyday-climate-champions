@@ -2,8 +2,8 @@
 
 import React, {
   createContext,
+  use,
   useCallback,
-  useContext,
   useEffect,
   useRef,
   useState,
@@ -122,7 +122,7 @@ export function AudioPlayerProvider({ children }: { children: React.ReactNode })
 }
 
 export function useAudioPlayer(): AudioPlayerContextValue {
-  const context = useContext(AudioPlayerContext);
+  const context = use(AudioPlayerContext);
   if (!context) {
     throw new Error('useAudioPlayer must be used within an AudioPlayerProvider');
   }

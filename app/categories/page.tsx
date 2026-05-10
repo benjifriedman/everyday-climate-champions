@@ -4,7 +4,7 @@ import { fetchGraphQL } from '@/lib/graphql';
 import { ALL_CATEGORIES_QUERY } from '@/lib/queries';
 import type { AllCategoriesResponse } from '@/types/wordpress';
 
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 export const metadata: Metadata = {
   title: 'Categories | Everyday Climate Champions',
@@ -19,7 +19,7 @@ export default async function CategoriesPage() {
 
     return (
       <main className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
-        <h1 className="page-title text-3xl font-bold sm:text-4xl">
+        <h1 className="page-title text-3xl font-semibold sm:text-4xl">
           Browse by Category
         </h1>
         <p className="mt-2 text-ecc-warm-600">
@@ -44,7 +44,7 @@ export default async function CategoriesPage() {
   } catch {
     return (
       <main className="mx-auto max-w-4xl px-4 py-16 text-center">
-        <h1 className="text-2xl font-bold text-foreground">
+        <h1 className="text-2xl font-semibold text-foreground">
           Content Temporarily Unavailable
         </h1>
         <p className="mt-4 text-ecc-warm-600">

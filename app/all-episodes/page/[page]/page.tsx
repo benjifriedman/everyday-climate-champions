@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { getEpisodesPage } from '@/lib/api';
 import EpisodeListPage from '@/components/EpisodeListPage';
 
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 interface PageProps {
   params: Promise<{ page: string }>;
@@ -42,19 +42,13 @@ export default async function AllEpisodesPageN({ params }: PageProps) {
     redirect('/all-episodes');
   }
 
+  let result;
   try {
-    const result = await getEpisodesPage(pageNum);
-
-    // If the requested page has no episodes, it doesn't exist
-    if (result.episodes.length === 0) {
-      notFound();
-    }
-
-    return <EpisodeListPage result={result} />;
+    result = await getEpisodesPage(pageNum);
   } catch {
     return (
       <main className="mx-auto max-w-4xl px-4 py-16 text-center">
-        <h1 className="text-2xl font-bold text-foreground">
+        <h1 className="text-2xl font-semibold text-foreground">
           Content Temporarily Unavailable
         </h1>
         <p className="mt-4 text-ecc-warm-600">
@@ -63,4 +57,11 @@ export default async function AllEpisodesPageN({ params }: PageProps) {
       </main>
     );
   }
+
+  // If the requested page has no episodes, it doesn't exist
+  if (result.episodes.length === 0) {
+    notFound();
+  }
+
+  return <EpisodeListPage result={result} />;
 }

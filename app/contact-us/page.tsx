@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 const CONTACT_EMAIL = 'EverydayClimateChampions@gmail.com';
 
@@ -51,7 +51,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function ContactUsPage() {
   return (
     <main className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
-      <h1 className="page-title text-3xl font-bold sm:text-4xl">
+      <h1 className="page-title text-3xl font-semibold sm:text-4xl">
         Contact Us
       </h1>
       <p className="mt-4 text-ecc-warm-600">

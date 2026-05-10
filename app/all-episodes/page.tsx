@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { getEpisodesPage } from '@/lib/api';
 import EpisodeListPage from '@/components/EpisodeListPage';
 
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 export const metadata: Metadata = {
   title: 'All Episodes | Everyday Climate Champions',
@@ -28,7 +28,7 @@ export default async function AllEpisodesPage() {
   } catch {
     return (
       <main className="mx-auto max-w-4xl px-4 py-16 text-center">
-        <h1 className="text-2xl font-bold text-foreground">
+        <h1 className="text-2xl font-semibold text-foreground">
           Content Temporarily Unavailable
         </h1>
         <p className="mt-4 text-ecc-warm-600">

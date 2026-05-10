@@ -5,7 +5,7 @@ import { cleanWordPressContent } from '@/lib/sanitize';
 import type { PageResponse } from '@/types/wordpress';
 
 
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 function stripHtml(html: string): string {
   return html.replace(/<[^>]*>/g, '').trim();
@@ -54,7 +54,7 @@ export default async function TakeActionPage() {
     if (!data.page) {
       return (
         <main className="mx-auto max-w-4xl px-4 py-16 text-center sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-foreground">Take Action</h1>
+          <h1 className="text-3xl font-semibold text-foreground">Take Action</h1>
           <p className="mt-4 text-ecc-warm-600">
             This page is not available right now. Please check back later.
           </p>
@@ -64,7 +64,7 @@ export default async function TakeActionPage() {
 
     return (
       <main className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
-        <h1 className="page-title text-3xl font-bold sm:text-4xl">
+        <h1 className="page-title text-3xl font-semibold sm:text-4xl">
           {data.page.title}
         </h1>
         <div
@@ -78,7 +78,7 @@ export default async function TakeActionPage() {
   } catch {
     return (
       <main className="mx-auto max-w-4xl px-4 py-16 text-center">
-        <h1 className="text-2xl font-bold text-foreground">
+        <h1 className="text-2xl font-semibold text-foreground">
           Content Temporarily Unavailable
         </h1>
         <p className="mt-4 text-ecc-warm-600">

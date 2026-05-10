@@ -27,7 +27,7 @@ function toLocalPath(url: string): string {
   }
 }
 
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 export async function generateMetadata(): Promise<Metadata> {
   try {
@@ -81,7 +81,7 @@ export default async function HomePage() {
   } catch {
     return (
       <main className="mx-auto max-w-4xl px-4 py-16 text-center">
-        <h1 className="text-2xl font-bold text-foreground">
+        <h1 className="text-2xl font-semibold text-foreground">
           Content Temporarily Unavailable
         </h1>
         <p className="mt-4 text-ecc-warm-600">
@@ -94,7 +94,7 @@ export default async function HomePage() {
   if (!latestEpisode) {
     return (
       <main className="mx-auto max-w-4xl px-4 py-16 text-center">
-        <h1 className="text-2xl font-bold text-foreground">
+        <h1 className="text-2xl font-semibold text-foreground">
           Everyday Climate Champions
         </h1>
         <p className="mt-4 text-ecc-warm-600">No episodes available yet. Check back soon!</p>
@@ -139,7 +139,7 @@ export default async function HomePage() {
       <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
       {/* Take Action Guide */}
       <section className="mb-10 rounded-xl border border-amber-200 bg-amber-50 p-6 text-center">
-        <h2 className="text-xl font-bold text-foreground sm:text-2xl">
+        <h2 className="text-xl font-semibold text-foreground sm:text-2xl">
           New Take Action Guide
         </h2>
         <p className="mx-auto mt-2 text-sm text-foreground">
@@ -157,7 +157,7 @@ export default async function HomePage() {
 
       {/* SF Climate Week Events — commented out, uncomment when new events are added
       <section className="mb-10 rounded-xl border border-amber-200 bg-amber-50 p-6 text-center">
-        <h2 className="text-xl font-bold text-foreground sm:text-2xl">
+        <h2 className="text-xl font-semibold text-foreground sm:text-2xl">
           Upcoming Events During SF Climate Week 2026
         </h2>
         <p className="mx-auto mt-2 max-w-lg text-sm text-foreground">
@@ -191,7 +191,7 @@ export default async function HomePage() {
             <span className="text-sm font-medium uppercase tracking-wide text-ecc-green-600">
               Latest Episode
             </span>
-            <h1 id="latest-episode-title" className="text-3xl font-bold text-foreground sm:text-4xl">
+            <h1 id="latest-episode-title" className="text-3xl font-semibold text-foreground sm:text-4xl">
               {latestEpisode.title}
             </h1>
             <time dateTime={latestEpisode.date} className="text-sm text-ecc-green-700">
@@ -259,7 +259,7 @@ export default async function HomePage() {
       {/* Recent Episodes */}
       {recentEpisodes && recentEpisodes.length > 0 && (
         <section className="mt-16" aria-labelledby="recent-episodes-heading">
-          <h2 id="recent-episodes-heading" className="text-2xl font-bold text-foreground">
+          <h2 id="recent-episodes-heading" className="text-2xl font-semibold text-foreground">
             Recent Episodes
           </h2>
           <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

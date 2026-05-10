@@ -23,7 +23,7 @@ export default function PlayButton({ episode }: PlayButtonProps) {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
         fill="currentColor"
-        className="h-5 w-5"
+        className="size-5"
         aria-hidden="true"
       >
         <path

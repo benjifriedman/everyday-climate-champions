@@ -12,7 +12,7 @@ export default function EpisodeListPage({ result }: EpisodeListPageProps) {
   if (episodes.length === 0) {
     return (
       <main className="mx-auto max-w-5xl px-4 py-16 text-center sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-bold text-foreground">All Episodes</h1>
+        <h1 className="text-3xl font-semibold text-foreground">All Episodes</h1>
         <p className="mt-4 text-ecc-warm-600">No episodes available yet. Check back soon!</p>
       </main>
     );
@@ -20,7 +20,7 @@ export default function EpisodeListPage({ result }: EpisodeListPageProps) {
 
   return (
     <main className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
-      <h1 className="page-title text-3xl font-bold sm:text-4xl">All Episodes</h1>
+      <h1 className="page-title text-3xl font-semibold sm:text-4xl">All Episodes</h1>
       {currentPage > 1 && (
         <p className="mt-2 text-ecc-warm-600">Page {currentPage}</p>
       )}

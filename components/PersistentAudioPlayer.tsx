@@ -42,14 +42,14 @@ export default function PersistentAudioPlayer() {
           onClick={isPlaying ? pause : resume}
           aria-label={isPlaying ? 'Pause' : 'Play'}
           disabled={!!error}
-          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-ecc-green-600 text-white transition-colors hover:bg-ecc-green-700 disabled:opacity-50"
+          className="flex size-11 shrink-0 items-center justify-center rounded-full bg-ecc-green-600 text-white transition-colors hover:bg-ecc-green-700 disabled:opacity-50"
         >
           {isPlaying ? (
-            <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <svg className="size-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
             </svg>
           ) : (
-            <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <svg className="size-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M8 5v14l11-7z" />
             </svg>
           )}
@@ -83,7 +83,7 @@ export default function PersistentAudioPlayer() {
 
             {/* Volume control */}
             <label className="hidden items-center gap-2 sm:flex">
-              <svg className="h-4 w-4 text-foreground/60" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <svg className="size-4 text-foreground/60" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" />
               </svg>
               <input

@@ -19,9 +19,10 @@ export default function DesktopNav() {
   return (
     <nav aria-label="Primary navigation" className="hidden nav:block">
       <ul className="flex items-center gap-1">
-        {NAV_LINKS.filter((link) => !DESKTOP_HIDDEN.has(link.href)).map((link) => {
+        {NAV_LINKS.flatMap((link) => {
+          if (DESKTOP_HIDDEN.has(link.href)) return [];
           const active = isActive(link.href, pathname);
-          return (
+          return [
             <li key={link.href}>
               <Link
                 href={link.href}
@@ -34,16 +35,16 @@ export default function DesktopNav() {
               >
                 {link.label}
               </Link>
-            </li>
-          );
+            </li>,
+          ];
         })}
         <li>
-          <a
+          <Link
             href="/donate"
             className="rounded-md bg-ecc-green-700 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-ecc-green-800"
           >
             Donate Now
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>

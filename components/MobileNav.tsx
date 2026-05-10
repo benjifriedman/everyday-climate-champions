@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback, useLayoutEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { NAV_LINKS } from '@/lib/constants';
@@ -17,11 +17,20 @@ export default function MobileNav() {
   const pathname = usePathname();
   const buttonRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
+  const prevPathnameRef = useRef(pathname);
 
   const close = useCallback(() => {
     setIsOpen(false);
     buttonRef.current?.focus();
   }, []);
+
+  // Close menu on route change
+  useLayoutEffect(() => {
+    if (prevPathnameRef.current !== pathname) {
+      prevPathnameRef.current = pathname;
+      setIsOpen(false);
+    }
+  }, [pathname]);
 
   // Close on Escape key
   useEffect(() => {
@@ -76,11 +85,6 @@ export default function MobileNav() {
     return () => document.removeEventListener('keydown', handleTab);
   }, [isOpen]);
 
-  // Close menu on route change
-  useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
-
   return (
     <div className="nav:hidden">
       <button
@@ -89,10 +93,10 @@ export default function MobileNav() {
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Toggle navigation menu"
         aria-expanded={isOpen}
-        className="inline-flex h-11 w-11 items-center justify-center rounded-md text-foreground hover:bg-ecc-green-50"
+        className="inline-flex size-11 items-center justify-center rounded-md text-foreground hover:bg-ecc-green-50"
       >
         <svg
-          className="h-6 w-6"
+          className="size-6"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}
@@ -129,10 +133,10 @@ export default function MobileNav() {
                 type="button"
                 onClick={close}
                 aria-label="Close navigation menu"
-                className="inline-flex h-11 w-11 items-center justify-center rounded-md text-foreground hover:bg-ecc-green-50"
+                className="inline-flex size-11 items-center justify-center rounded-md text-foreground hover:bg-ecc-green-50"
               >
                 <svg
-                  className="h-6 w-6"
+                  className="size-6"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
@@ -146,15 +150,16 @@ export default function MobileNav() {
 
             <nav aria-label="Mobile navigation">
               <ul className="flex flex-col px-4 py-2">
-                {NAV_LINKS.filter((link) => link.href !== '/donate').map((link) => {
+                {NAV_LINKS.flatMap((link) => {
+                  if (link.href === '/donate') return [];
                   const active = isActive(link.href, pathname);
-                  return (
+                  return [
                     <li key={link.href}>
                       <Link
                         href={link.href}
                         onClick={close}
                         aria-current={active ? 'page' : undefined}
-                        className={`block rounded-md px-3 py-3 text-sm font-medium transition-colors ${
+                        className={`block rounded-md p-3 text-sm font-medium transition-colors ${
                           active
                             ? 'bg-ecc-green-700 text-white underline underline-offset-4'
                             : 'text-foreground/80 hover:bg-ecc-green-200 hover:text-ecc-green-700'
@@ -162,17 +167,17 @@ export default function MobileNav() {
                       >
                         {link.label}
                       </Link>
-                    </li>
-                  );
+                    </li>,
+                  ];
                 })}
                 <li>
-                  <a
+                  <Link
                     href="/donate"
                     onClick={close}
-                    className="block rounded-md bg-ecc-green-700 px-3 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-ecc-green-800"
+                    className="block rounded-md bg-ecc-green-700 p-3 text-center text-sm font-semibold text-white transition-colors hover:bg-ecc-green-800"
                   >
                     Donate Now
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>

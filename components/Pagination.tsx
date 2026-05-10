@@ -6,12 +6,12 @@ interface PaginationProps {
   basePath: string;
 }
 
-export function getPageHref(basePath: string, page: number): string {
+function getPageHref(basePath: string, page: number): string {
   if (page === 1) return basePath;
   return `${basePath}/page/${page}`;
 }
 
-export function getPageNumbers(currentPage: number, totalPages: number): (number | 'ellipsis')[] {
+function getPageNumbers(currentPage: number, totalPages: number): (number | 'ellipsis')[] {
   if (totalPages <= 7) {
     return Array.from({ length: totalPages }, (_, i) => i + 1);
   }
@@ -45,7 +45,7 @@ export default function Pagination({ currentPage, totalPages, basePath }: Pagina
       {/* Previous link */}
       {currentPage === 1 ? (
         <span
-          className="flex h-11 w-11 items-center justify-center rounded-lg border border-ecc-warm-200 text-ecc-warm-400 cursor-not-allowed"
+          className="flex size-11 items-center justify-center rounded-lg border border-ecc-warm-200 text-ecc-warm-400 cursor-not-allowed"
           aria-disabled="true"
         >
           <span aria-hidden="true">&laquo;</span>
@@ -54,7 +54,7 @@ export default function Pagination({ currentPage, totalPages, basePath }: Pagina
       ) : (
         <Link
           href={getPageHref(basePath, currentPage - 1)}
-          className="flex h-11 w-11 items-center justify-center rounded-lg border border-ecc-warm-200 text-foreground hover:bg-ecc-green-50 transition-colors"
+          className="flex size-11 items-center justify-center rounded-lg border border-ecc-warm-200 text-foreground hover:bg-ecc-green-50 transition-colors"
         >
           <span aria-hidden="true">&laquo;</span>
           <span className="sr-only">Previous page</span>
@@ -65,8 +65,8 @@ export default function Pagination({ currentPage, totalPages, basePath }: Pagina
       {pageNumbers.map((page, index) =>
         page === 'ellipsis' ? (
           <span
-            key={`ellipsis-${index}`}
-            className="flex h-11 w-11 items-center justify-center text-ecc-warm-600"
+            key={`ellipsis-${index === 1 ? 'start' : 'end'}`}
+            className="flex size-11 items-center justify-center text-ecc-warm-600"
             aria-hidden="true"
           >
             &hellip;
@@ -75,7 +75,7 @@ export default function Pagination({ currentPage, totalPages, basePath }: Pagina
           <span
             key={page}
             aria-current="page"
-            className="flex h-11 w-11 items-center justify-center rounded-lg bg-ecc-green-600 text-white font-semibold"
+            className="flex size-11 items-center justify-center rounded-lg bg-ecc-green-600 text-white font-semibold"
           >
             {page}
           </span>
@@ -83,7 +83,7 @@ export default function Pagination({ currentPage, totalPages, basePath }: Pagina
           <Link
             key={page}
             href={getPageHref(basePath, page)}
-            className="flex h-11 w-11 items-center justify-center rounded-lg border border-ecc-warm-200 text-foreground hover:bg-ecc-green-50 transition-colors"
+            className="flex size-11 items-center justify-center rounded-lg border border-ecc-warm-200 text-foreground hover:bg-ecc-green-50 transition-colors"
           >
             {page}
           </Link>
@@ -93,7 +93,7 @@ export default function Pagination({ currentPage, totalPages, basePath }: Pagina
       {/* Next link */}
       {currentPage === totalPages ? (
         <span
-          className="flex h-11 w-11 items-center justify-center rounded-lg border border-ecc-warm-200 text-ecc-warm-400 cursor-not-allowed"
+          className="flex size-11 items-center justify-center rounded-lg border border-ecc-warm-200 text-ecc-warm-400 cursor-not-allowed"
           aria-disabled="true"
         >
           <span aria-hidden="true">&raquo;</span>
@@ -102,7 +102,7 @@ export default function Pagination({ currentPage, totalPages, basePath }: Pagina
       ) : (
         <Link
           href={getPageHref(basePath, currentPage + 1)}
-          className="flex h-11 w-11 items-center justify-center rounded-lg border border-ecc-warm-200 text-foreground hover:bg-ecc-green-50 transition-colors"
+          className="flex size-11 items-center justify-center rounded-lg border border-ecc-warm-200 text-foreground hover:bg-ecc-green-50 transition-colors"
         >
           <span aria-hidden="true">&raquo;</span>
           <span className="sr-only">Next page</span>

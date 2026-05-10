@@ -15,7 +15,7 @@ export async function fetchGraphQL<T>(
   }
 }
 
-export class GraphQLFetchError extends Error {
+class GraphQLFetchError extends Error {
   constructor(message: string, options?: ErrorOptions) {
     super(message, options);
     this.name = 'GraphQLFetchError';

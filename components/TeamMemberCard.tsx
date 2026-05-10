@@ -8,8 +8,7 @@ interface TeamMemberCardProps {
 function getInitials(name: string): string {
   return name
     .split(' ')
-    .map((word) => word[0])
-    .filter(Boolean)
+    .flatMap((word) => word[0] ? [word[0]] : [])
     .slice(0, 2)
     .join('')
     .toUpperCase();
@@ -29,11 +28,11 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
             alt={photo.altText || name}
             width={128}
             height={128}
-            className="h-32 w-32 rounded-full object-cover"
+            className="size-32 rounded-full object-cover"
           />
         ) : (
           <div
-            className="flex h-32 w-32 items-center justify-center rounded-full bg-ecc-warm-200 text-2xl font-bold text-ecc-warm-700"
+            className="flex size-32 items-center justify-center rounded-full bg-ecc-warm-200 text-2xl font-semibold text-ecc-warm-700"
             aria-hidden="true"
           >
             {getInitials(name)}
