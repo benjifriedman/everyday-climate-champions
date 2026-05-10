@@ -1,12 +1,12 @@
 # Everyday Climate Champions
 
-The public frontend for the [Everyday Climate Champions](https://everyday-climate-champions.vercel.app/) podcast — a show about everyday Bay Area people helping with climate change.
+The public frontend for the [Everyday Climate Champions](https://www.everydayclimatechampions.org/) podcast — a show about everyday Bay Area people helping with climate change.
 
 Built with [Next.js](https://nextjs.org/) (App Router), using the existing WordPress site as a headless CMS via [WPGraphQL](https://www.wpgraphql.com/).
 
 ## Tech Stack
 
-- **Next.js 15** with App Router and TypeScript
+- **Next.js 16** with App Router and TypeScript
 - **Tailwind CSS** for styling
 - **WordPress + WPGraphQL** as the headless CMS
 - **graphql-request** for data fetching
