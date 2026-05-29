@@ -90,7 +90,7 @@ export default async function CategoryArchivePage({ params }: PageProps) {
     <main className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
       <Link
         href="/categories"
-        className="mb-3 inline-flex items-center gap-1 text-sm text-ecc-green-700 hover:text-ecc-green-800"
+        className="mb-3 block text-sm text-ecc-green-700 hover:text-ecc-green-800"
       >
         ← All Categories
       </Link>
