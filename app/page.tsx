@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { fetchGraphQL } from '@/lib/graphql';
-import { LATEST_EPISODE_QUERY, EPISODE_LIST_QUERY } from '@/lib/queries';
-import type { LatestEpisodeResponse, EpisodeListResponse } from '@/types/wordpress';
+import { LATEST_EPISODE_QUERY, EPISODE_LIST_QUERY, ALL_CATEGORIES_QUERY } from '@/lib/queries';
+import type { LatestEpisodeResponse, EpisodeListResponse, AllCategoriesResponse } from '@/types/wordpress';
 import EpisodeCard from '@/components/EpisodeCard';
 import { SPOTIFY_SHOW_ID } from '@/lib/constants';
 
@@ -66,11 +66,13 @@ function formatDate(dateString: string): string {
 export default async function HomePage() {
   let latestEpisode;
   let recentEpisodes;
+  let categories;
 
   try {
-    const [latestData, recentData] = await Promise.all([
+    const [latestData, recentData, categoriesData] = await Promise.all([
       fetchGraphQL<LatestEpisodeResponse>(LATEST_EPISODE_QUERY),
       fetchGraphQL<EpisodeListResponse>(EPISODE_LIST_QUERY, { first: 7 }),
+      fetchGraphQL<AllCategoriesResponse>(ALL_CATEGORIES_QUERY),
     ]);
 
     latestEpisode = latestData.episodes.nodes[0] ?? null;
@@ -78,6 +80,7 @@ export default async function HomePage() {
     recentEpisodes = latestEpisode
       ? allRecent.filter((ep) => ep.slug !== latestEpisode!.slug).slice(0, 6)
       : allRecent.slice(0, 6);
+    categories = categoriesData.podcastCategories.nodes.filter((c) => (c.count ?? 0) > 0);
   } catch {
     return (
       <main className="mx-auto max-w-4xl px-4 py-16 text-center">
@@ -265,6 +268,32 @@ export default async function HomePage() {
           <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {recentEpisodes.map((episode) => (
               <EpisodeCard key={episode.id} episode={episode} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Browse by Category */}
+      {categories && categories.length > 0 && (
+        <section className="mt-16" aria-labelledby="categories-heading">
+          <h2 id="categories-heading" className="text-2xl font-semibold text-foreground">
+            Browse by Category
+          </h2>
+          <p className="mt-2 text-ecc-warm-600">
+            Explore episodes by topic.
+          </p>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {categories.map((cat) => (
+              <Link
+                key={cat.slug}
+                href={`/podcast-category/${cat.slug}`}
+                className="flex items-center justify-between rounded-lg border border-ecc-warm-200 bg-white px-5 py-4 transition-colors hover:border-ecc-green-300 hover:bg-ecc-green-50"
+              >
+                <span className="font-medium text-foreground">{cat.name}</span>
+                <span className="rounded-full bg-ecc-green-50 px-2.5 py-0.5 text-sm text-ecc-green-700">
+                  {cat.count}
+                </span>
+              </Link>
             ))}
           </div>
         </section>
