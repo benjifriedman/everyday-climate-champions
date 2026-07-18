@@ -27,7 +27,7 @@ function toLocalPath(url: string): string {
   }
 }
 
-export const revalidate = 86400;
+export const revalidate = 3600;
 
 export async function generateMetadata(): Promise<Metadata> {
   try {
@@ -64,35 +64,18 @@ function formatDate(dateString: string): string {
 }
 
 export default async function HomePage() {
-  let latestEpisode;
-  let recentEpisodes;
-  let categories;
+  const [latestData, recentData, categoriesData] = await Promise.all([
+    fetchGraphQL<LatestEpisodeResponse>(LATEST_EPISODE_QUERY),
+    fetchGraphQL<EpisodeListResponse>(EPISODE_LIST_QUERY, { first: 7 }),
+    fetchGraphQL<AllCategoriesResponse>(ALL_CATEGORIES_QUERY),
+  ]);
 
-  try {
-    const [latestData, recentData, categoriesData] = await Promise.all([
-      fetchGraphQL<LatestEpisodeResponse>(LATEST_EPISODE_QUERY),
-      fetchGraphQL<EpisodeListResponse>(EPISODE_LIST_QUERY, { first: 7 }),
-      fetchGraphQL<AllCategoriesResponse>(ALL_CATEGORIES_QUERY),
-    ]);
-
-    latestEpisode = latestData.episodes.nodes[0] ?? null;
-    const allRecent = recentData.episodes.nodes;
-    recentEpisodes = latestEpisode
-      ? allRecent.filter((ep) => ep.slug !== latestEpisode!.slug).slice(0, 6)
-      : allRecent.slice(0, 6);
-    categories = categoriesData.podcastCategories.nodes.filter((c) => (c.count ?? 0) > 0);
-  } catch {
-    return (
-      <main className="mx-auto max-w-4xl px-4 py-16 text-center">
-        <h1 className="text-2xl font-semibold text-foreground">
-          Content Temporarily Unavailable
-        </h1>
-        <p className="mt-4 text-ecc-warm-600">
-          We&apos;re having trouble loading the latest episodes. Please try again later.
-        </p>
-      </main>
-    );
-  }
+  const latestEpisode = latestData.episodes.nodes[0] ?? null;
+  const allRecent = recentData.episodes.nodes;
+  const recentEpisodes = latestEpisode
+    ? allRecent.filter((ep) => ep.slug !== latestEpisode.slug).slice(0, 6)
+    : allRecent.slice(0, 6);
+  const categories = categoriesData.podcastCategories.nodes.filter((c) => (c.count ?? 0) > 0);
 
   if (!latestEpisode) {
     return (
