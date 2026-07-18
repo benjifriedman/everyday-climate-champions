@@ -37,14 +37,22 @@ export default function EpisodeCard({ episode }: EpisodeCardProps) {
       className="group block overflow-hidden rounded-xl bg-ecc-warm-50 shadow-sm transition-shadow hover:shadow-md"
     >
       {featuredImage && (
-        <div className="relative aspect-video w-full overflow-hidden">
-          <Image
-            src={featuredImage.node.sourceUrl}
-            alt={featuredImage.node.altText || title}
-            width={featuredImage.node.mediaDetails.width}
-            height={featuredImage.node.mediaDetails.height}
-            className="h-full w-full object-cover transition-transform group-hover:scale-105"
-          />
+        <div className="relative aspect-[4/3] w-full overflow-hidden bg-ecc-warm-100">
+          {(() => {
+            const { width, height } = featuredImage.node.mediaDetails;
+            const isSquareOrPortrait = height >= width;
+            return (
+              <Image
+                src={featuredImage.node.sourceUrl}
+                alt={featuredImage.node.altText || title}
+                width={width}
+                height={height}
+                className={`h-full w-full transition-transform group-hover:scale-105 ${
+                  isSquareOrPortrait ? 'object-contain' : 'object-cover'
+                }`}
+              />
+            );
+          })()}
         </div>
       )}
       <div className="p-4">
