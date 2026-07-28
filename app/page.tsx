@@ -124,7 +124,7 @@ export default async function HomePage() {
 
       <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
       {/* Take Action Guide */}
-      <section className="mb-10 rounded-xl border border-amber-200 bg-amber-50 p-6 text-center">
+      <section className="mb-10 rounded-xl bg-taupe-50 p-6 text-center">
         <h2 className="text-xl font-semibold text-foreground sm:text-2xl">
           New Take Action Guide
         </h2>
