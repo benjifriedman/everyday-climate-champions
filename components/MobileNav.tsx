@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, useCallback, useLayoutEffect } from 'react
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { NAV_LINKS } from '@/lib/constants';
+import ListenOnLinks from '@/components/ListenOnLinks';
 
 function isActive(href: string, pathname: string): boolean {
   if (href === '/') {
@@ -149,6 +150,9 @@ export default function MobileNav() {
             </div>
 
             <nav aria-label="Mobile navigation">
+              <div className="border-b border-ecc-warm-200 px-4 pb-3">
+                <ListenOnLinks iconSize="size-5" />
+              </div>
               <ul className="flex flex-col px-4 py-2">
                 {NAV_LINKS.flatMap((link) => {
                   if (link.href === '/donate') return [];

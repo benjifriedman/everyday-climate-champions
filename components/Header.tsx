@@ -3,10 +3,18 @@ import Image from 'next/image';
 import { SITE_TITLE } from '@/lib/constants';
 import DesktopNav from '@/components/DesktopNav';
 import MobileNav from '@/components/MobileNav';
+import ListenOnLinks from '@/components/ListenOnLinks';
 
 export default function Header() {
   return (
-    <header className="relative border-b border-ecc-warm-200 bg-ecc-warm-50">
+    <header className="relative border-b border-ecc-warm-200 bg-transparent">
+      {/* Listen On — above nav, desktop only */}
+      <div className="hidden nav:block">
+        <div className="mx-auto flex max-w-7xl justify-center px-4 pt-3 sm:px-6 lg:px-8">
+          <ListenOnLinks iconSize="size-9" />
+        </div>
+      </div>
+
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-3">
           <Image
