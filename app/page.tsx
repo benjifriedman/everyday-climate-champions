@@ -33,25 +33,24 @@ export async function generateMetadata(): Promise<Metadata> {
   try {
     const data = await fetchGraphQL<LatestEpisodeResponse>(LATEST_EPISODE_QUERY);
     const episode = data.episodes.nodes[0];
-    if (!episode) return { title: 'Everyday Climate Champions' };
+    if (!episode) return { title: { absolute: 'Everyday Climate Champions' } };
 
     const description = episode.excerpt.replace(/<[^>]*>/g, '').trim();
-    const title = `${episode.title} | Everyday Climate Champions`;
 
     return {
-      title,
+      title: { absolute: 'Everyday Climate Champions' },
       description,
       openGraph: {
-        title,
+        title: 'Everyday Climate Champions',
         description,
         ...(episode.featuredImage && {
           images: [{ url: episode.featuredImage.node.sourceUrl }],
         }),
       },
-      twitter: { card: 'summary_large_image', title, description },
+      twitter: { card: 'summary_large_image', title: 'Everyday Climate Champions', description },
     };
   } catch {
-    return { title: 'Everyday Climate Champions' };
+    return { title: { absolute: 'Everyday Climate Champions' } };
   }
 }
 

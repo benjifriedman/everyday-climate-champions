@@ -26,20 +26,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     });
 
     if (!data.podcastCategory) {
-      return { title: 'Category Not Found | Everyday Climate Champions' };
+      return { title: 'Category Not Found' };
     }
 
-    const title = `${data.podcastCategory.name} | Everyday Climate Champions`;
+    const title = data.podcastCategory.name;
     const description = `Browse episodes in the ${data.podcastCategory.name} category of the Everyday Climate Champions podcast.`;
 
     return {
       title,
       description,
-      openGraph: { title, description },
-      twitter: { card: 'summary', title, description },
+      openGraph: { title: `Everyday Climate Champions | ${title}`, description },
+      twitter: { card: 'summary', title: `Everyday Climate Champions | ${title}`, description },
     };
   } catch {
-    return { title: 'Category | Everyday Climate Champions' };
+    return { title: 'Category' };
   }
 }
 

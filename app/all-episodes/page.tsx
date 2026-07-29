@@ -5,17 +5,17 @@ import EpisodeListPage from '@/components/EpisodeListPage';
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
-  title: 'All Episodes | Everyday Climate Champions',
+  title: 'All Episodes',
   description:
     'Browse all episodes of the Everyday Climate Champions podcast. Discover stories of everyday Bay Area people helping with climate change.',
   openGraph: {
-    title: 'All Episodes | Everyday Climate Champions',
+    title: 'Everyday Climate Champions | All Episodes',
     description:
       'Browse all episodes of the Everyday Climate Champions podcast. Discover stories of everyday Bay Area people helping with climate change.',
   },
   twitter: {
     card: 'summary',
-    title: 'All Episodes | Everyday Climate Champions',
+    title: 'Everyday Climate Champions | All Episodes',
     description:
       'Browse all episodes of the Everyday Climate Champions podcast. Discover stories of everyday Bay Area people helping with climate change.',
   },

@@ -12,7 +12,10 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: 'Everyday Climate Champions',
+  title: {
+    default: 'Everyday Climate Champions',
+    template: 'Everyday Climate Champions | %s',
+  },
   description:
     'A podcast about everyday Bay Area people helping with climate change. Listen to inspiring stories, actionable steps, and community voices making a difference.',
   icons: {

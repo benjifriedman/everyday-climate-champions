@@ -8,7 +8,7 @@ import EventCard from '@/components/EventCard';
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
-  title: 'Events | Everyday Climate Champions',
+  title: 'Events',
   description:
     'Events from Everyday Climate Champions — panels, live shows, and community gatherings around climate action in the Bay Area.',
 };

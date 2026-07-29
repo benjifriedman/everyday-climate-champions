@@ -17,10 +17,10 @@ export async function generateMetadata(): Promise<Metadata> {
     });
 
     if (!data.page) {
-      return { title: 'Partners & Sponsors | Everyday Climate Champions' };
+      return { title: 'Partners & Sponsors' };
     }
 
-    const title = `${data.page.title} | Everyday Climate Champions`;
+    const title = data.page.title;
     const description = stripHtml(data.page.content).slice(0, 160);
 
     return {
@@ -40,7 +40,7 @@ export async function generateMetadata(): Promise<Metadata> {
       },
     };
   } catch {
-    return { title: 'Partners & Sponsors | Everyday Climate Champions' };
+    return { title: 'Partners & Sponsors' };
   }
 }
 

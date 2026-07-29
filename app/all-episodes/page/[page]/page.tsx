@@ -14,17 +14,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const pageNum = parseInt(page, 10);
 
   if (isNaN(pageNum) || pageNum < 1) {
-    return { title: 'All Episodes | Everyday Climate Champions' };
+    return { title: 'All Episodes' };
   }
 
-  const title = `All Episodes - Page ${pageNum} | Everyday Climate Champions`;
+  const title = `All Episodes - Page ${pageNum}`;
   const description = `Browse page ${pageNum} of all Everyday Climate Champions podcast episodes.`;
 
   return {
     title,
     description,
-    openGraph: { title, description },
-    twitter: { card: 'summary', title, description },
+    openGraph: { title: `Everyday Climate Champions | ${title}`, description },
+    twitter: { card: 'summary', title: `Everyday Climate Champions | ${title}`, description },
   };
 }
 

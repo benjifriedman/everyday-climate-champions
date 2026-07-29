@@ -56,11 +56,11 @@ export async function generateMetadata({ params }: EpisodePageProps): Promise<Me
   const episode = await getEpisode(slug);
 
   if (!episode) {
-    return { title: 'Episode Not Found | Everyday Climate Champions' };
+    return { title: 'Episode Not Found' };
   }
 
   const description = episode.excerpt.replace(/<[^>]*>/g, '').trim();
-  const title = `${episode.title} | Everyday Climate Champions`;
+  const title = episode.title;
 
   return {
     title,

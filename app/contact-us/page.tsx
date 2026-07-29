@@ -36,15 +36,15 @@ const sections = [
 ];
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = 'Contact Us | Everyday Climate Champions';
+  const title = 'Contact Us';
   const description =
     'Get in touch with the Everyday Climate Champions podcast team. Share feedback, suggest a guest, collaborate, or email us.';
 
   return {
     title,
     description,
-    openGraph: { title, description },
-    twitter: { card: 'summary', title, description },
+    openGraph: { title: 'Everyday Climate Champions | Contact Us', description },
+    twitter: { card: 'summary', title: 'Everyday Climate Champions | Contact Us', description },
   };
 }
 

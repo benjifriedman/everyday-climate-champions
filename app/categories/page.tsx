@@ -7,7 +7,7 @@ import type { AllCategoriesResponse } from '@/types/wordpress';
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
-  title: 'Categories | Everyday Climate Champions',
+  title: 'Categories',
   description:
     'Browse episodes by topic — climate justice, energy, transportation, and more.',
 };

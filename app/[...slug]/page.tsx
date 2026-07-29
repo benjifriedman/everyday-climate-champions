@@ -25,11 +25,11 @@ export async function generateMetadata({ params }: CatchAllPageProps): Promise<M
   const page = await getPage(slug.join('/'));
 
   if (!page) {
-    return { title: 'Page Not Found | Everyday Climate Champions' };
+    return { title: 'Page Not Found' };
   }
 
   return {
-    title: `${page.title} | Everyday Climate Champions`,
+    title: page.title,
   };
 }
 
