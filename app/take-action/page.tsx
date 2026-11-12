@@ -46,45 +46,32 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function TakeActionPage() {
-  try {
-    const data = await fetchGraphQL<PageResponse>(PAGE_BY_SLUG_QUERY, {
-      slug: 'take-action',
-    });
+  const data = await fetchGraphQL<PageResponse>(PAGE_BY_SLUG_QUERY, {
+    slug: 'take-action',
+  });
 
-    if (!data.page) {
-      return (
-        <main className="mx-auto max-w-4xl px-4 py-16 text-center sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-semibold text-foreground">Take Action</h1>
-          <p className="mt-4 text-ecc-warm-600">
-            This page is not available right now. Please check back later.
-          </p>
-        </main>
-      );
-    }
-
+  if (!data.page) {
     return (
-      <main className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
-        <h1 className="page-title text-3xl font-semibold sm:text-4xl">
-          {data.page.title}
-        </h1>
-        <div
-          className="prose prose-neutral mt-8 max-w-none text-ecc-warm-700"
-          dangerouslySetInnerHTML={{ __html: cleanWordPressContent(data.page.content) }}
-        />
-
-
-      </main>
-    );
-  } catch {
-    return (
-      <main className="mx-auto max-w-4xl px-4 py-16 text-center">
-        <h1 className="text-2xl font-semibold text-foreground">
-          Content Temporarily Unavailable
-        </h1>
+      <main className="mx-auto max-w-4xl px-4 py-16 text-center sm:px-6 lg:px-8">
+        <h1 className="text-3xl font-semibold text-foreground">Take Action</h1>
         <p className="mt-4 text-ecc-warm-600">
-          We&apos;re having trouble loading this page. Please try again later.
+          This page is not available right now. Please check back later.
         </p>
       </main>
     );
   }
+
+  return (
+    <main className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
+      <h1 className="page-title text-3xl font-semibold sm:text-4xl">
+        {data.page.title}
+      </h1>
+      <div
+        className="prose prose-neutral mt-8 max-w-none text-ecc-warm-700"
+        dangerouslySetInnerHTML={{ __html: cleanWordPressContent(data.page.content) }}
+      />
+
+
+    </main>
+  );
 }

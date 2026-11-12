@@ -22,19 +22,6 @@ export const metadata: Metadata = {
 };
 
 export default async function AllEpisodesPage() {
-  try {
-    const result = await getEpisodesPage(1);
-    return <EpisodeListPage result={result} />;
-  } catch {
-    return (
-      <main className="mx-auto max-w-4xl px-4 py-16 text-center">
-        <h1 className="text-2xl font-semibold text-foreground">
-          Content Temporarily Unavailable
-        </h1>
-        <p className="mt-4 text-ecc-warm-600">
-          We&apos;re having trouble loading episodes. Please try again later.
-        </p>
-      </main>
-    );
-  }
+  const result = await getEpisodesPage(1);
+  return <EpisodeListPage result={result} />;
 }
