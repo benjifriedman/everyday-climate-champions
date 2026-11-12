@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       # Public endpoint; the build fetches content from WordPress at build time.
-      NEXT_PUBLIC_WORDPRESS_GRAPHQL_URL: https://www.praxisinaction.org/ecc/\?graphql
+      NEXT_PUBLIC_WORDPRESS_GRAPHQL_URL: https://www.praxisinaction.org/ecc/?graphql
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
