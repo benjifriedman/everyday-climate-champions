@@ -39,6 +39,8 @@ yarn-error.log*
 
 # kiro
 .kiro/
+# editor settings
+.vscode/
 
 # typescript
 *.tsbuildinfo

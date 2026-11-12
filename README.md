@@ -59,8 +59,9 @@ Built with [Next.js](https://nextjs.org/) (App Router), using the existing WordP
 | `/team` | Our Team (WordPress page) |
 | `/our-partners-and-sponsors` | Partners & Sponsors (WordPress page) |
 | `/take-action` | Take Action (WordPress page) |
+| `/events` | Events listing — event metadata from `lib/events.ts`, content from WordPress pages |
 | `/contact-us` | Contact Us — links to feedback survey, guest suggestions, collaboration form, email |
-| `/[...slug]` | Catch-all for any other WordPress page (recaps, transcripts, etc.) |
+| `/[...slug]` | Catch-all for any other WordPress page (donate, recaps, transcripts, etc.) |
 
 ## Architecture
 
@@ -84,6 +85,8 @@ Required WordPress plugins:
 | `lib/graphql.ts` | GraphQL client with error handling |
 | `lib/api.ts` | Data fetching functions |
 | `lib/constants.ts` | Nav links, site title, Spotify show ID |
+| `lib/events.ts` | Event metadata (date, location, ticket link) keyed by WordPress page slug |
+| `lib/sanitize.ts` | Cleans WordPress HTML before rendering |
 | `types/wordpress.ts` | TypeScript types for WP data |
 | `app/api/revalidate/route.ts` | On-demand ISR revalidation endpoint |
 | `app/globals.css` | Global styles including WordPress content styling |
@@ -94,10 +97,13 @@ Required WordPress plugins:
 2. Make sure `npm run build` passes before submitting a PR
 3. WordPress content changes should be made in the WordPress admin, not in code
 4. Episode metadata fields are managed via `functions.php` on the WordPress side
+5. Run `npm run lint` and fix any errors before opening a PR
+
+If you are using an AI coding assistant, point it at [AGENTS.md](AGENTS.md), which describes the project's conventions and pitfalls.
 
 ## Remaining To-Do
 
-- Re-create Elementor-based pages (About Us, Take Action, etc.) in the WordPress block editor for cleaner rendering
+- Re-create the Take Action page in the WordPress block editor (it still contains Elementor markup; the other pages have been migrated)
 - Configure WP Mail SMTP or similar plugin if email delivery from WordPress is needed
 
 ## License
