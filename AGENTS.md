@@ -36,6 +36,8 @@ Copy `.env.local.example` to `.env.local`.
 |---|---|
 | `NEXT_PUBLIC_WORDPRESS_GRAPHQL_URL` | WordPress GraphQL endpoint. Production: `https://www.praxisinaction.org/ecc/?graphql` |
 | `REVALIDATION_SECRET` | Shared secret for the `/api/revalidate` webhook |
+| `NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN` | Optional. PostHog project token, read in `instrumentation-client.ts`. Analytics are off when unset. Leave it unset locally and in CI/preview so test traffic doesn't pollute production data |
+| `NEXT_PUBLIC_POSTHOG_HOST` | Optional. PostHog ingestion host (default `https://us.i.posthog.com`) |
 
 Never commit `.env*` files (except `.env.local.example`) or `wp-config.php`. Never put secrets in code, logs, or commit messages.
 
@@ -60,6 +62,7 @@ lib/
   events.ts           Event metadata, keyed by WordPress page slug
   sanitize.ts         cleanWordPressContent() for WordPress HTML
 types/                TypeScript types for WordPress data and the audio player
+instrumentation-client.ts   Browser-side PostHog init (runs once before hydration)
 ```
 
 Imports use the `@/` alias (e.g. `@/lib/graphql`).

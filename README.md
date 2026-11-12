@@ -45,6 +45,8 @@ Built with [Next.js](https://nextjs.org/) (App Router), using the existing WordP
 |---|---|
 | `NEXT_PUBLIC_WORDPRESS_GRAPHQL_URL` | WordPress GraphQL endpoint (e.g. `https://www.praxisinaction.org/ecc/?graphql`) |
 | `REVALIDATION_SECRET` | Secret token for the on-demand revalidation webhook |
+| `NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN` | Optional. PostHog project token. Analytics are disabled when unset, so leave it out locally |
+| `NEXT_PUBLIC_POSTHOG_HOST` | Optional. PostHog ingestion host (default `https://us.i.posthog.com`) |
 
 ## Pages
 
