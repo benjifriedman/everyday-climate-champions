@@ -97,7 +97,11 @@ With no path or type, it revalidates the whole site. If you add a route whose Wo
 
 ### Known pitfall: errors can be cached
 
-Many page components wrap their fetch in `try/catch` and render a "Content Temporarily Unavailable" message (or `notFound()`) instead of letting the error propagate. If WordPress is down during a regeneration, that fallback can be cached for the full revalidate period. The intended design is for errors to bubble up to `app/error.tsx`, which Next.js does not cache. When you touch a page's fetch logic, prefer letting errors propagate over adding another inline catch. Do not do a broad cleanup unless asked.
+The intended design is for fetch errors to bubble up to `app/error.tsx`, which Next.js does not cache. If a page catches the error and renders a fallback instead, a WordPress outage during regeneration can cache that fallback for the full revalidate period.
+
+The static pages (`/about-us`, `/team`, `/our-partners-and-sponsors`, `/take-action`, `/categories`, `/events`, `/all-episodes`) already follow this design. These still catch fetch errors and render a fallback or `notFound()`, so they have the caching problem: `app/[...slug]`, `app/episodes/[slug]`, `app/all-episodes/page/[page]`, and `app/podcast-category/[slug]`. Their `generateMetadata` functions also catch errors, which is fine because they return plain metadata.
+
+Do not wrap JSX in `try/catch`: the `react-hooks/error-boundaries` lint rule rejects it. Let errors propagate instead of adding another inline catch. Do not do a broad cleanup of the remaining pages unless asked.
 
 ## Adding common things
 
