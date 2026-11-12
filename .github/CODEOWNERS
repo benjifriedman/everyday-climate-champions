@@ -1,0 +1,11 @@
+# Code owners are automatically requested for review on PRs that touch these paths.
+# Default owner for everything:
+*                     @benjifriedman
+
+# Paths that affect security, deployment, or dependencies:
+/app/api/             @benjifriedman
+/next.config.ts       @benjifriedman
+/package.json         @benjifriedman
+/package-lock.json    @benjifriedman
+/.github/             @benjifriedman
+/AGENTS.md            @benjifriedman

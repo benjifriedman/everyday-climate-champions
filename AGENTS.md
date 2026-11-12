@@ -145,6 +145,8 @@ Pushes to `main` deploy automatically to Vercel. There is no staging branch; use
 
 **Never push directly to `main`.** Work on a feature branch (e.g. `feature/short-description` or `fix/short-description`) and open a pull request. This applies to humans and AI agents alike.
 
+GitHub Actions (`.github/workflows/ci.yml`) runs `npm run lint` and `npm run build` on every PR to `main`. Run both locally first. `.github/CODEOWNERS` requests review from the maintainer on every PR, with sensitive paths (`app/api/`, `next.config.ts`, `package*.json`, `.github/`, `AGENTS.md`) listed explicitly.
+
 ## Safety notes for agents
 
 - Do not make write requests to the production WordPress site or call the production revalidation endpoint unless the user asks.
